@@ -4,17 +4,108 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter&family=Merriweather:wght@700&display=swap" rel="stylesheet">
+  <!--  <link rel="icon" href="assets/img/CV.ico"> -->
+    <title>portfolio</title>
 </head>
 <body>
-  <header></header>
+  <header class="header">
+    <div class="general-container">
+      <div class="header-container">
+        <div class="logo">
+          <a href="#">
+            <svg class="icon">
+              <use xlink:href="./assets/svg/sprite.svg#logo"></use>
+            </svg>
+          </a>
+        </div>
+        <nav class="nav">
+          <ul class="nav-list">
+            <li class="nav-item"><a href="#skill" class="nav-link">Skills</a></li>
+            <li class="nav-item"><a href="#portfolio" class="nav-link">Portfolio</a></li>
+            <li class="nav-item"><a href="#video" class="nav-link">Video</a></li>
+            <li class="nav-item"><a href="#price" class="nav-link">Price</a></li>
+            <li class="nav-item"><a href="#contact" class="nav-link">Contacts</a></li>
+          </ul>
+        </nav>
+        <div class="lang">
+          <a href="#" class="lang-link active">en</a>
+          <div class="lang-slash">/</div>
+          <a href="#" class="lang-link">ru</a>
+        </div>
+      </div>
+    </div>
+  </header>
   <main>
-    <section class="section" id="hero"></section>
-    <section class="section" id="skills"></section>
-    <section class="section" id="portfolio"></section>
-    <section class="section" id="video"></section>
-    <section class="section" id="price"></section>
-    <section class="section" id="contacts"></section>
+    <section class="section" id="hero">
+      <div class="general-container">
+        <div class="hero-container">
+          <div class="hero-inner">
+            <h1 class="hero-tittle">Alexa Rise</h1>
+            <p class="hero-text">Save sincere emotions, romantic feelings and<br>happy moments of life together with professional photographer Alexa Rise</p>
+            <form action="/" method="POST">
+              <button class="button">Hire me</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="section" id="skill">
+      <div class="general-container">
+        <div class="tittle-wrap">
+          <h2 class="section-tittle">Skills</h2>
+        </div>
+        <div class="skill-inner">
+          <div class="skill-item">
+            <svg class="skill-icon">
+              <use xlink:href="./assets/svg/sprite.svg#camera"></use>
+            </svg>
+            <h4 class="skill-subtittle">Digital photography</h4>
+            <p class="skill-text">High-quality photos in the studio<br> and on the nature</p>
+          </div>
+          <div class="skill-item">
+            <svg class="skill-icon">
+              <use xlink:href="./assets/svg/sprite.svg#video"></use>
+            </svg>
+            <h4 class="skill-subtittle">Video shooting</h4>
+            <p class="skill-text">Capture your moments so that<br> they always stay with you</p>
+          </div>
+          <div class="skill-item">
+            <svg class="skill-icon">
+              <use xlink:href="./assets/svg/sprite.svg#image"></use>
+            </svg>
+            <h4 class="skill-subtittle">Retouch</h4>
+            <p class="skill-text">I strive to make photography<br> surpass reality</p>
+          </div>
+          <div class="skill-item">
+            <svg class="skill-icon">
+              <use xlink:href="./assets/svg/sprite.svg#mic"></use>
+            </svg>
+            <h4 class="skill-subtittle">Audio</h4>
+            <p class="skill-text">Professional sounds recording<br> for video, advertising, portfolio</p>
+          </div>
+        </div> <!-- skill-inner -->
+      </div> <!-- general-container -->
+    </section>
+    <section class="section" id="portfolio">
+      <div class="tittle-wrap">
+        <h2 class="section-tittle">Portfolio</h2>
+
+    </section>
+    <section class="section" id="video">
+      <div class="tittle-wrap">
+        <h2 class="section-tittle">Video</h2>
+      </div>
+    </section>
+    <section class="section" id="price">
+      <div class="tittle-wrap">
+        <h2 class="section-tittle">Price</h2>
+      </div>
+    </section>
+    <section class="section" id="contacts">
+
+    </section>
   </main>
   <footer></footer>
 </body>
