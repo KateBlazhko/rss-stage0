@@ -4,12 +4,14 @@ html {
 
 body {
   margin: 0;
+
   font-family: 'Inter', sans-serif;
   font-style: normal;
   font-weight: normal;
   font-size: 20px;
   line-height: 40px;
   color: #ffffff;
+
   background: #000000;
 }
 
@@ -52,6 +54,7 @@ p {
 .icon {
   width: 50px;
   height: 50px;
+
   fill: #ffffff;
 }
 
@@ -62,8 +65,10 @@ p {
 /* Tittle */
 .tittle-wrap {
   position: relative;
+
   width: 700px;
   margin: 90px auto 60px auto;
+
   text-align: center;
 }
 
@@ -72,9 +77,11 @@ p {
   top: 40px;
   left: 0px;
   z-index: -1;
+
   display: block;
   width: 100%;
   height: 2px;
+
   content: "";
   background-color: #bdae82;
 
@@ -83,6 +90,7 @@ p {
 .section-tittle {
   display:inline;
   padding: 0 20px;
+
   font-family: Merriweather;
   font-style: normal;
   font-weight: bold;
@@ -170,12 +178,14 @@ p {
 /* Hero */
 .hero-container {
   min-height: 910px;
-  background-image: url('assets/img/bg.jpg');
-  background-position: center -90px;
-  background-repeat: no-repeat;
   padding-top: 250px;
   padding-left: 80px;
   margin-bottom: -90px;
+
+  background-image: url('assets/img/bg.jpg');
+  background-position: center -90px;
+  background-repeat: no-repeat;
+
 }
 
 .hero-inner {
@@ -191,8 +201,9 @@ p {
 }
 
 .hero-text {
-  text-align: left;
   padding-bottom: 25px;
+
+  text-align: left;
 }
 
 /* Skills */
@@ -212,6 +223,7 @@ p {
 
 .skill-subtittle {
   margin-top: 20px;
+
   font-weight: bold;
   font-size: 20px;
 }
@@ -219,6 +231,7 @@ p {
 .skill-icon {
   width: 60px;
   height: 50px;
+
   fill: #bdae82;
 }
 
@@ -228,3 +241,62 @@ p {
 }
 
 /* Portfolio */
+.portfolio-inner{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.portfolio-form {
+  display: flex;
+  justify-content: space-between;
+  width: 895px;
+  margin: 0 auto;
+  padding-bottom: 60px;
+}
+
+.portfolio-button {
+  width: 220px;
+  height: 55px;
+  border: 2px solid #bdae82;
+
+  font-family: inherit;
+  font-size: 20px;
+  line-height: 40px;
+  color: #bdae82;
+
+  background-color: #000000;
+  cursor: pointer;
+}
+
+.portfolio-button:hover {
+  color: #ffffff;
+}
+
+.portfolio-button.active {
+  width: 220px;
+  height: 55px;
+  border: 0;
+
+  font-family: inherit;
+  font-size: 20px;
+  line-height: 40px;
+  color: #000000;
+
+  background-color: #bdae82;
+  cursor: pointer;
+}
+
+.portfolio-button.active:hover {
+  color: #ffffff;
+}
+
+.portfolio-item {
+  flex-basis: 450px;
+  padding-bottom: 25px;
+}
+
+.portfolio-img {
+  display: block;
+}
