@@ -207,7 +207,7 @@ p {
 }
 
 /* Skills */
-.skill-inner {
+.skill-container {
   display: flex;
   justify-content: space-between;
   gap: 40px;
@@ -243,7 +243,6 @@ p {
 }
 
 /* Portfolio */
-
 .portfolio-form {
   display: flex;
   justify-content: center;
@@ -288,7 +287,7 @@ p {
   color: #ffffff;
 }
 
-.portfolio-inner{
+.portfolio-list{
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
@@ -302,3 +301,5 @@ p {
 .portfolio-img {
   display: block;
 }
+
+/* Video */
