@@ -210,6 +210,7 @@ p {
 .skill-inner {
   display: flex;
   justify-content: space-between;
+  gap: 40px;
 }
 
 .skill-item {
@@ -217,12 +218,13 @@ p {
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  width: 320px;
-  height: 240px;
+  gap: 20px;
+
+  flex: 1 1 320px;
 }
 
 .skill-subtittle {
-  margin-top: 20px;
+  padding-top: 30px;
 
   font-weight: bold;
   font-size: 20px;
@@ -241,17 +243,11 @@ p {
 }
 
 /* Portfolio */
-.portfolio-inner{
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-}
 
 .portfolio-form {
   display: flex;
-  justify-content: space-between;
-  width: 895px;
+  justify-content: center;
+  gap: 5px;
   margin: 0 auto;
   padding-bottom: 60px;
 }
@@ -292,9 +288,15 @@ p {
   color: #ffffff;
 }
 
+.portfolio-inner{
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 25px;
+}
+
 .portfolio-item {
-  flex-basis: 450px;
-  padding-bottom: 25px;
+  flex: 1 1 450px;
 }
 
 .portfolio-img {
