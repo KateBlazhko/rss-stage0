@@ -107,7 +107,9 @@ p {
   color: #000000;
 
   background-color: #bdae82;
+
   cursor: pointer;
+  transition: color 0.3s linear;
 }
 
 .button:hover {
@@ -132,6 +134,8 @@ p {
   height: 50px;
 
   fill: #ffffff;
+
+  transition: fill 0.3s linear;
 }
 
 .logo-icon:hover {
@@ -152,8 +156,10 @@ p {
 .nav-link {
   font-size: 20px;
   line-height: 50px;
-  color: #ffffff;
   text-decoration: none;
+  color: #ffffff;
+
+  transition: color 0.3s linear;
 }
 
 .nav-link:hover {
@@ -267,7 +273,9 @@ p {
   color: #bdae82;
 
   background-color: #000000;
+
   cursor: pointer;
+  transition: color 0.3s linear;
 }
 
 .portfolio-button:hover {
@@ -285,7 +293,9 @@ p {
   color: #000000;
 
   background-color: #bdae82;
+
   cursor: pointer;
+  transition: color 0.3s linear;
 }
 
 .portfolio-button.active:hover {
@@ -334,6 +344,8 @@ p {
   height: 130px;
 
   fill: #ffffff;
+
+  transition: fill 0.3s linear;
 }
 
 .video-icon:hover {
@@ -486,6 +498,8 @@ p {
 .footer-link {
   text-decoration: none;
   color: #ffffff;
+
+  transition: color 0.3s linear;
 }
 
 .footer-link:hover {
@@ -508,6 +522,8 @@ p {
   height: 32px;
 
   fill: #ffffff;
+
+  transition: fill 0.3s linear;
 }
 
 .footer-icon:hover {
