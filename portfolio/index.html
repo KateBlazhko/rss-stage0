@@ -170,10 +170,48 @@
         </div> <!-- price-container -->
       </div> <!-- general-container -->
     </section>
-    <section class="section" id="contacts">
+    <section class="section" id="contact">
       <div class="general-container">
+        <div class="contact-container">
+          <div class="contact-inner">
+              <h1 class="section-tittle contact">Contact me</h1>
+              <form class="contact-form" action="/" method="POST">
+                <input class="contact_input" type="email" name="E-mail" placeholder="E-mail">
+                <input class="contact_input" type="tel" name="Phone" placeholder="Phone">
+                <textarea class="contact_textarea" name="Message" placeholder="Message"></textarea>
+                <button class="button">Send message</button>
+              </form>
+          </div>
+        </div>
     </section>
   </main>
-  <footer></footer>
+  <footer>
+    <div class="general-container">
+      <div class="footer-container">
+        <div class="footer-item">
+          <span>©</span>
+          <span>2022</span>
+          <a class="git_link" href="https://github.com/KateBlazhko">github</a>
+        </div>
+        <div class="footer-item">
+          <span>Rolling Scopes School</span>
+        </div>
+        <div class="footer-item">
+          <svg class="footer-icon">
+            <use xlink:href="./assets/svg/sprite.svg#inst"></use>
+          </svg>
+          <svg class="footer-icon">
+            <use xlink:href="./assets/svg/sprite.svg#fb"></use>
+          </svg>
+          <svg class="footer-icon">
+            <use xlink:href="./assets/svg/sprite.svg#tw"></use>
+          </svg>
+          <svg class="footer-icon">
+            <use xlink:href="./assets/svg/sprite.svg#pinterest"></use>
+          </svg>
+        </div>
+      </div>
+    </div>
+  </footer>
 </body>
 </html>
