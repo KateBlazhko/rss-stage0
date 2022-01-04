@@ -325,3 +325,20 @@ p {
 .video-icon:hover {
   fill: #bdae82;
 }
+
+/* Price */
+.price_subtittle {
+
+}
+
+.price {
+
+}
+
+.price-list {
+
+}
+
+.price-item {
+  display: block;
+}
