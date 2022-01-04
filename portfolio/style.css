@@ -320,8 +320,16 @@ p {
   background-position: center 0;
 }
 
-.video-icon {
+.video-button {
   position: absolute;
+
+  border: 0;
+
+  background-color: transparent;
+
+}
+
+.video-icon {
   width: 130px;
   height: 130px;
 
