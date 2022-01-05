@@ -282,31 +282,16 @@ p {
   background-color: #000000;
 
   cursor: pointer;
-  transition: color 0.3s linear;
+  transition: color, background-color 0.3s linear;
 }
 
 .portfolio-button:hover {
   color: #ffffff;
 }
 
-.portfolio-button.active {
-  width: 220px;
-  height: 55px;
-  border: 0;
-
-  font-family: inherit;
-  font-size: 20px;
-  line-height: 40px;
+.portfolio-button:focus {
   color: #000000;
-
   background-color: #bdae82;
-
-  cursor: pointer;
-  transition: color 0.3s linear;
-}
-
-.portfolio-button.active:hover {
-  color: #ffffff;
 }
 
 .portfolio-list{
