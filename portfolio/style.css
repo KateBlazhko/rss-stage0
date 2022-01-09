@@ -395,10 +395,13 @@ p {
 
 /* Contacts */
 .contact-container {
+  display: flex;
+  justify-content: end;
+  align-items: start;
   min-height: 700px;
-  margin: 0 -20px;
+  margin-right: auto;
   padding-top: 60px;
-  padding-left: 970px;
+
 
   background-image: url('assets/img/contacts.jpg');
   background-size: auto 700px;
