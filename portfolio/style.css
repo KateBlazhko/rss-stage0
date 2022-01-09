@@ -234,11 +234,11 @@ p {
 .skill-item {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: start;
   align-items: center;
   gap: 20px;
 
-  flex: 1 1 320px;
+  flex-basis: 320px;
 }
 
 .skill-subtittle {
@@ -246,6 +246,7 @@ p {
 
   font-weight: bold;
   font-size: 20px;
+  text-align: center;
 }
 
 .skill-icon {
@@ -296,13 +297,13 @@ p {
 
 .portfolio-list{
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   flex-wrap: wrap;
   gap: 25px;
 }
 
 .portfolio-item {
-  flex: 1 1 450px;
+  flex-basis: 450px;
 }
 
 .portfolio-img {
@@ -347,7 +348,8 @@ p {
 /* Price */
 .price-container {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
+  flex-wrap: wrap;
   gap: 25px;
   padding-bottom: 100px;
 }
