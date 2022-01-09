@@ -52,12 +52,15 @@ p {
   padding: 0 20px;
 }
 
+.general-container.full {
+  padding: 0;
+}
+
 /* Tittle */
 .tittle-wrap {
   position: relative;
 
   width: 700px;
-/*  margin: 90px auto 60px auto;*/
   margin: 0 auto;
   padding-top: 100px ;
   padding-bottom: 60px;
@@ -125,6 +128,7 @@ p {
   justify-content: space-between;
   align-items: center;
   min-height: 90px;
+  padding: 0 20px;
 
   background: url('assets/img/bg.jpg');
   background-repeat: no-repeat;
@@ -191,15 +195,13 @@ p {
 
 /* Hero */
 .hero-container {
-  min-height: 910px;
+  height: 820px;
   padding-top: 160px;
-  padding-left: 60px;
-  margin-bottom: -90px;
+  padding-left: 80px;
 
   background-image: url('assets/img/bg.jpg');
   background-position: center -90px;
   background-repeat: no-repeat;
-
 }
 
 .hero-inner {
@@ -399,9 +401,7 @@ p {
   justify-content: end;
   align-items: start;
   min-height: 700px;
-  margin-right: auto;
   padding-top: 60px;
-
 
   background-image: url('assets/img/contacts.jpg');
   background-size: auto 700px;
@@ -413,7 +413,8 @@ p {
   flex-direction: column;
   justify-content: space-between;
   gap: 40px;
-  width: 450px;
+  width: 470px;
+  padding-right: 20px;
 }
 
 .contact-form {
