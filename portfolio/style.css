@@ -289,7 +289,7 @@ p {
   color: #ffffff;
 }
 
-.portfolio-button:focus {
+.portfolio-button.active {
   color: #000000;
   background-color: #bdae82;
 }
