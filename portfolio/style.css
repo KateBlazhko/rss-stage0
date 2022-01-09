@@ -358,6 +358,7 @@ p {
   justify-content: space-between;
   gap: 20px;
   flex-basis: 450px;
+  height: 505px;
   border: 3px solid #bdae82;
   padding: 43px;
 
@@ -462,7 +463,10 @@ p {
   font-size: 20px;
   line-height: 40px;
   color: #bdae82;
+}
 
+.button.contact {
+  margin-top: 10px;
 }
 
 /* Footer */
