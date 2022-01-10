@@ -515,7 +515,6 @@ p {
   width: 100%;
   height: 50px;
   padding-left: 20px;
-  padding-top: 5px;
   border: 2px solid #bdae82;
 
   font-family: Inter;
@@ -523,9 +522,14 @@ p {
   font-weight: normal;
   font-size: 20px;
   line-height: 40px;
-  color: #ffffff;
+  color: #bdae82;
 
-  background-color: transparent;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.contact-form-input:focus {
+  outline: none;
+  border: 4px solid #bdae82;
 }
 
 .contact-form-textarea {
@@ -541,9 +545,14 @@ p {
   font-weight: normal;
   font-size: 20px;
   line-height: 40px;
-  color: #ffffff;
+  color: #bdae82;
 
-  background-color: transparent;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.contact-textarea:focus {
+  outline: none;
+  border: 4px solid #bdae82;
 }
 
 ::placeholder {
@@ -553,6 +562,11 @@ p {
   font-size: 20px;
   line-height: 40px;
   color: #bdae82;
+}
+
+input:-webkit-autofill {
+  transition: background-color 5000s ease-in-out 0s;
+  -webkit-text-fill-color: #bdae82 !important;
 }
 
 .button.contact {
