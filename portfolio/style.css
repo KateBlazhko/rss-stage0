@@ -314,23 +314,25 @@ p {
 /* Video */
 .video-container {
   position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 705px;
+}
 
-  background: url('assets/img/video-player.jpg');
-  background-repeat: no-repeat;
-  background-position: center 0;
+.video {
+  display: block;
+  width: 100%;
+  height: auto;
 }
 
 .video-button {
   position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 1;
 
   border: 0;
 
   background-color: transparent;
 
+  transform: translateX(-50%) translateY(-50%);
 }
 
 .video-icon {
