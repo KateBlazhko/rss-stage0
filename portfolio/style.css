@@ -60,7 +60,7 @@ p {
 .tittle-wrap {
   position: relative;
 
-  width: 700px;
+  max-width: 50%;
   margin: 0 auto;
   padding-top: 100px ;
   padding-bottom: 60px;
@@ -70,7 +70,7 @@ p {
 
 .tittle-wrap::after {
   position: absolute;
-  top: 140px;
+  top: 58%;
   left: 0px;
   z-index: -1;
 
@@ -619,14 +619,7 @@ p {
 @media (max-width: 768px) {
    /* Tittle */
   .tittle-wrap {
-    width: 50%;
     padding-bottom: 65px;
-  }
-
-  .tittle-wrap::after {
-    top: 120px;
-
-    transform: translateY(-50%);
   }
 
   .section-tittle {
