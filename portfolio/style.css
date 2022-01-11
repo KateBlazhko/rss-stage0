@@ -127,7 +127,7 @@ p {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 90px;
+  height: 92px;
   padding: 0 20px;
 
   background: url('assets/img/bg.jpg');
@@ -157,6 +157,7 @@ p {
 .nav-list {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   padding: 0 30px;
 }
 
@@ -224,21 +225,24 @@ p {
 
 /* Hero */
 .hero-container {
-  height: 820px;
+  display: flex;
+  justify-content: start;
+  align-items: start;
   padding-top: 160px;
   padding-left: 80px;
 
   background-image: url('assets/img/bg.jpg');
-  background-position: center -90px;
+  background-position: center -92px;
   background-repeat: no-repeat;
 }
 
 .hero-inner {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: start;
   gap: 10px;
-  width: 500px;
+  width: 35%;
+  height: 660px;
 }
 
 .hero-tittle {
@@ -258,7 +262,7 @@ p {
 /* Skills */
 .skill-container {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   gap: 40px;
 }
 
@@ -269,7 +273,7 @@ p {
   align-items: center;
   gap: 20px;
 
-  flex-basis: 320px;
+  flex-basis: 25%;
 }
 
 .skill-subtittle {
@@ -334,7 +338,7 @@ p {
 }
 
 .portfolio-item {
-  flex-basis: 450px;
+  flex-basis: 32%;
 }
 
 .portfolio-img {
@@ -382,7 +386,6 @@ p {
 .price-container {
   display: flex;
   justify-content: center;
-  flex-wrap: wrap;
   gap: 25px;
   padding-bottom: 100px;
 }
@@ -392,10 +395,9 @@ p {
   flex-direction: column;
   justify-content: space-between;
   gap: 20px;
-  flex-basis: 450px;
-  height: 505px;
+  flex-basis: 58%;
   border: 3px solid #bdae82;
-  padding: 43px;
+  padding: 40px;
 
   text-align: center;
 }
@@ -446,7 +448,7 @@ p {
   flex-direction: column;
   justify-content: space-between;
   gap: 40px;
-  width: 470px;
+  flex-basis: 470px;
   padding-right: 20px;
 }
 
@@ -564,7 +566,7 @@ p {
   fill: #bdae82;
 }
 
-@media (max-width: 1400px) {
+@media (max-width: 1200px) {
   /* Header */
   .header-container {
      padding: 0 5%;
@@ -572,14 +574,17 @@ p {
 
   /* Hero */
   .hero-container {
-    max-height: 800px;
     padding-top: 10%;
     padding-left: 5%;
   }
 
+  .hero-text {
+    line-height: 35px;
+}
+
   /* Scills */
   .skill-container {
-    padding: 0 5%;
+    flex-wrap: wrap;
   }
 
   /* Contacts */
@@ -594,16 +599,19 @@ p {
 
 }
 
-@media (max-width: 1200px) {
+@media (max-width: 1024px) {
   /* Hero */
   .hero-container {
-    max-height: 700px;
     padding-top: 15%;
   }
 
+  .hero-inner {
+    width: 45%;
+  }
+
   .hero-tittle {
-    font-size: 50px;
-    line-height: 100px;
+    font-size: 45px;
+    line-height: 80px;
   }
 
   .hero-text {
@@ -614,6 +622,11 @@ p {
   .portfolio-form {
     flex-wrap: wrap;
   }
+
+    /* Price */
+    .price-container {
+      flex-wrap: wrap;
+    }
 }
 
 @media (max-width: 768px) {
@@ -653,7 +666,6 @@ p {
 
    /* Hero */
   .hero-container {
-    max-height: 500px;
     padding-left: 8%;
     padding-top: 10%;
     background-position: 0px -110px;
@@ -661,6 +673,7 @@ p {
   }
 
   .hero-inner {
+    height: 420px;
     width: 55%;
     gap: 20px;
   }
@@ -678,14 +691,11 @@ p {
 
   /* Skills */
   .skill-container {
-    justify-content: center;
-    gap: 40px;
-    flex-wrap: wrap;
     padding-bottom: 45px;
   }
 
   .skill-item {
-    flex-basis: 300px;
+    flex-basis: 42%;
   }
 
   .skill-subtittle {
@@ -728,8 +738,9 @@ p {
     gap: 50px;
     padding-bottom: 80px;
   }
+
   .price-item {
-    flex-basis: 420px;
+    flex-basis: 58%;
   }
 
   /* Contacts */
@@ -758,6 +769,8 @@ p {
   .footer-container{
     align-items: end;
     flex-wrap: wrap;
+    gap: 10px;
+    padding-top: 15px;
   }
 
   .footer-item,
