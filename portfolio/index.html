@@ -10,52 +10,56 @@
   <title>portfolio</title>
 </head>
 <body>
-  <header class="header">
-    <div class="general-container full">
+  <div class="general-container full">
+    <header class="header">
       <div class="header-container">
-        <div class="logo">
-          <svg class="logo-icon">
-            <use xlink:href="./assets/svg/sprite.svg#logo"></use>
-          </svg>
-        </div>
-        <nav class="nav">
-          <ul class="nav-list">
-            <li class="nav-item"><a href="#skill" class="nav-link">Skills</a></li>
-            <li class="nav-item"><a href="#portfolio" class="nav-link">Portfolio</a></li>
-            <li class="nav-item"><a href="#video" class="nav-link">Video</a></li>
-            <li class="nav-item"><a href="#price" class="nav-link">Price</a></li>
-            <li class="nav-item"><a href="#contact" class="nav-link">Contacts</a></li>
-          </ul>
-        </nav>
-        <div class="lang">
-          <a href="#" class="lang-link active">en</a>
-          <div class="lang-slash">/</div>
-          <a href="#" class="lang-link">ru</a>
-        </div>
-        <div class="nav-toggle">
-          <span class="nav-toggle-item"></span>
-          <span class="nav-toggle-item"></span>
-          <span class="nav-toggle-item"></span>
-        </div>
-      </div>
-    </div>
-  </header>
-  <main>
-    <section class="section" id="hero">
-      <div class="general-container full">
-        <div class="hero-container">
-          <div class="hero-inner">
-            <h1 class="hero-tittle">Alexa Rise</h1>
-            <p class="hero-text">Save sincere emotions, romantic feelings and happy moments of life together with professional photographer Alexa Rise</p>
-            <form action="/" method="POST">
-              <button class="button" type="button">Hire me</button>
-            </form>
+        <div class="header-container-inner">
+          <div class="logo">
+            <svg class="logo-icon">
+              <use xlink:href="./assets/svg/sprite.svg#logo"></use>
+            </svg>
+          </div>
+          <nav class="nav">
+            <ul class="nav-list">
+              <li class="nav-item"><a href="#skill" class="nav-link">Skills</a></li>
+              <li class="nav-item"><a href="#portfolio" class="nav-link">Portfolio</a></li>
+              <li class="nav-item"><a href="#video" class="nav-link">Video</a></li>
+              <li class="nav-item"><a href="#price" class="nav-link">Price</a></li>
+              <li class="nav-item"><a href="#contact" class="nav-link">Contacts</a></li>
+            </ul>
+          </nav>
+          <div class="lang">
+            <a href="#" class="lang-link active">en</a>
+            <div class="lang-slash">/</div>
+            <a href="#" class="lang-link">ru</a>
+          </div>
+          <div class="nav-toggle">
+            <span class="nav-toggle-line"></span>
+            <span class="nav-toggle-line"></span>
+            <span class="nav-toggle-line"></span>
           </div>
         </div>
       </div>
-    </section>
-    <section class="section" id="skill">
-      <div class="general-container">
+    </header>
+  </div>
+  <main>
+    <div class="general-container full">
+      <section class="section" id="hero">
+        <div class="hero-container">
+          <div class="hero-container-inner">
+            <div class="hero-content">
+              <h1 class="hero-tittle">Alexa Rise</h1>
+              <p class="hero-text">Save sincere emotions, romantic feelings and happy moments of life together with professional photographer Alexa Rise</p>
+              <form action="/" method="POST">
+                <button class="button" type="button">Hire me</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+    <div class="general-container">
+      <section class="section" id="skill">
         <div class="tittle-wrap">
           <h2 class="section-tittle">Skills</h2>
         </div>
@@ -89,10 +93,8 @@
             <p class="skill-text">Professional sounds recording<br> for video, advertising, portfolio</p>
           </div>
         </div> <!-- skill-inner -->
-      </div> <!-- general-container -->
-    </section>
-    <section class="section" id="portfolio">
-      <div class="general-container">
+      </section>
+      <section class="section" id="portfolio">
         <div class="tittle-wrap">
           <h2 class="section-tittle">Portfolio</h2>
         </div>
@@ -110,15 +112,13 @@
           <div class="portfolio-item"><img class="portfolio-img" src="assets/img/portfolio-img-5.jpg" alt="portfolio-img-5"></div>
           <div class="portfolio-item"><img class="portfolio-img" src="assets/img/portfolio-img-6.jpg" alt="portfolio-img-6"></div>
         </div>
-      </div>
-    </section>
-    <section class="section" id="video">
-      <div class="general-container">
+      </section>
+      <section class="section" id="video">
         <div class="tittle-wrap">
           <h2 class="section-tittle">Video</h2>
         </div>
-        <div class="video-wrap">
-          <div class="video-container">
+        <div class="video-container">
+          <div class="video-container-inner">
             <img class="video" src="assets/img/video-player.jpg" alt="video">
             <button class="video-button" type="button">
               <svg class="video-icon">
@@ -127,10 +127,8 @@
             </button>
             </div>
         </div>
-      </div>
-    </section>
-    <section class="section" id="price">
-      <div class="general-container">
+      </section>
+      <section class="section" id="price">
         <div class="tittle-wrap">
           <h2 class="section-tittle">Price</h2>
         </div>
@@ -178,23 +176,25 @@
             </form>
           </div>
         </div> <!-- price-container -->
-      </div> <!-- general-container -->
-    </section>
-    <section class="section" id="contact">
-      <div class="general-container full">
+      </section>
+    </div> <!-- general-container -->
+    <div class="general-container full">
+      <section class="section" id="contact">
         <div class="contact-container">
-          <div class="contact-inner">
-              <h2 class="section-tittle contact">Contact me</h2>
-              <form class="contact-form" action="/" method="POST">
-                <input class="contact_input" type="email" name="E-mail" placeholder="E-mail">
-                <input class="contact_input" type="tel" name="Phone" placeholder="Phone">
-                <textarea class="contact_textarea" name="Message" placeholder="Message"></textarea>
-                <button class="button contact" type="button">Send message</button>
-              </form>
+          <div class="contact-container-inner">
+            <div class="contact-content">
+                <h2 class="section-tittle contact">Contact me</h2>
+                <form class="contact-form" action="/" method="POST">
+                  <input class="contact_input" type="email" name="E-mail" placeholder="E-mail">
+                  <input class="contact_input" type="tel" name="Phone" placeholder="Phone">
+                  <textarea class="contact_textarea" name="Message" placeholder="Message"></textarea>
+                  <button class="button contact" type="button">Send message</button>
+                </form>
+            </div>
           </div>
         </div>
-      </div>
-    </section>
+     </section>
+    </div>
   </main>
   <footer>
     <div class="general-container">
@@ -241,8 +241,8 @@
             </li>
           </ul>
         </div>
-      </div>
-    </div>
+      </div> <!-- footer-container -->
+    </div> <!-- general-container -->
   </footer>
   <script src="index.js"></script>
 </body>
