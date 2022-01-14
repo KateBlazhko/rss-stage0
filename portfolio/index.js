@@ -1,3 +1,12 @@
+function scrollHeader() {
+  let scrollPos = window.scrollY;
+  if (scrollPos > 0) {
+      header.classList.add('fixed');
+  } else {
+      header.classList.remove('fixed');
+  }
+}
+
 function toggleMenu() {
   body.classList.toggle('lock');
   menuToggle.classList.toggle('active');
@@ -11,6 +20,9 @@ function closeMenu(event) {
   }
 }
 
+const header = document.querySelector('.header-container-inner');
+window.addEventListener('scroll', scrollHeader);
+
 const body = document.querySelector('body');
 const menuToggle = document.querySelector('.menu-toggle');
 const menuContainer = document.querySelector('.header-container-menu');
@@ -21,7 +33,6 @@ menuToggle.onmousedown = function() {
 };
 
 menuToggle.addEventListener('click', toggleMenu);
-
 menu.addEventListener('click', closeMenu);
 
 console.log(`
