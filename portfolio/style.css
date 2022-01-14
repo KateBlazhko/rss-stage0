@@ -131,13 +131,13 @@ p {
   position: absolute;
   top: 0;
   left: 0;
-  z-index: 1;
+  z-index: 2;
 
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: end;
   width: 100%;
-  height: 90px;
+  height: 70px;
   padding: 0 20px;
  }
 
@@ -155,7 +155,7 @@ p {
   fill: #bdae82;
 }
 
-.nav {
+.header-container-menu {
   width: 500px;
   margin-left: auto;
 }
@@ -200,31 +200,37 @@ p {
   width: 70px;
 }
 
-.nav-toggle {
+.menu-toggle {
   position: absolute;
+  right: calc((65 / 768) * 100%);
+  top: 20px;
+  z-index: 4;
+
   display: none;
 }
 
-.nav-toggle-line {
+.menu-toggle-line {
   display: block;
   width: 50px;
   height: 3px;
   margin: 10px auto;
   background-color: #ffffff;
-  transition: all .2s linear;
+  transition: all 0.4s linear;
 }
 
-.nav-toggle.active .nav-toggle-line:nth-child(2){
+.menu-toggle.active .menu-toggle-line:nth-child(2){
   opacity: 0;
 }
 
-.nav-toggle.active .nav-toggle-line:nth-child(1){
+.menu-toggle.active .menu-toggle-line:nth-child(1){
   transform: translateY(13px) rotate(45deg);
 }
 
-.nav-toggle.active .nav-toggle-line:nth-child(3){
+.menu-toggle.active .menu-toggle-line:nth-child(3){
   transform: translateY(-13px) rotate(-45deg);
 }
+
+
 
 /* Hero */
 .hero-container {
@@ -687,6 +693,10 @@ p {
 }
 
 @media (max-width: 768px) {
+  body.lock {
+    overflow: hidden;
+  }
+
   /* General container */
   .general-container {
     max-width: none;
@@ -699,26 +709,62 @@ p {
     line-height: 40px;
   }
 
-   /* Header */
-   .header-container-inner {
-    gap: 20px;
+  /* Header */
+  .header-container-inner {
+    position: fixed;
+    overflow-x: hidden;
+
     padding: 0 8%;
+  }
+
+  /* Menu */
+  .header-container-menu {
+    position: fixed;
+    top: 0px;
+    right: -620px;
+    z-index: 3;
+    overflow: auto;
+
+    height: 100%;
+    width: 620px;
+    max-height: 1024px;
+
+    background-color: #000000;
+
+    transition: all 1s ease 0s;
+  }
+
+  .header-container-menu.active {
+    right: 0px;
    }
 
-   .nav {
-     display: none;
-   }
+   .nav-list {
+    display: block;
 
-   .lang {
-     width: 90px;
-     margin-left: auto;
-   }
+    padding: 130px 0 0 130px;
+  }
 
-   .nav-toggle {
-    position: static;
+  .nav-item {
+    padding-bottom: 20px;
+  }
+
+  .nav-link {
+    font-size: 35px;
+    line-height: 73px;
+  }
+
+   .menu-toggle {
     display: block;
     cursor: pointer;
   }
+
+   .lang {
+     justify-content: end;
+     gap: 15px;
+     width: 90px;
+     margin-right: 75px;
+     margin-left: auto;
+   }
 
    /* Hero */
    .hero-container {
