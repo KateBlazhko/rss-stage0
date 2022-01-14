@@ -153,8 +153,15 @@ p {
 
 .header-container-inner.fixed {
   position: fixed;
+  top: 0;
+  left: 50%;
+  z-index: 2;
+
+  max-width: 1440px;
 
   background-color: rgba(0, 0, 0, 0.8);
+
+  transform: translateX(-50%);
 }
 
 .logo-icon:hover {
@@ -640,6 +647,12 @@ input:-webkit-autofill {
   /* Header */
   .header-container-inner {
      padding: 0 5%;
+  }
+
+  .header-container-inner.fixed {
+    left: 0;
+
+    transform: none;
   }
 
   /* Hero */
