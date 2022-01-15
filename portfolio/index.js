@@ -17,6 +17,7 @@ function closeMenu(event) {
   if (event.target.classList.contains('nav-link')) {
     menuToggle.classList.remove('active');
     menuContainer.classList.remove('active');
+    body.classList.remove('lock');
   }
 }
 
