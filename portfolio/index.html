@@ -105,12 +105,24 @@
         <div class="tittle-wrap">
           <h2 class="section-tittle">Portfolio</h2>
         </div>
-        <form class="portfolio-form" action="/" method="POST">
-          <button class="portfolio-button" type="button">Winter</button>
-          <button class="portfolio-button" type="button">Spring</button>
-          <button class="portfolio-button" type="button">Summer</button>
-          <button class="portfolio-button active" type="button">Autumn</button>
-        </form>
+        <div class="portfolio-form">
+          <div class="portfolio-button">
+            <input id="winter" type="radio" name="portfolio-button" value="winter">
+            <label for="winter">Winter</label>
+          </div>
+          <div class="portfolio-button">
+            <input id="spring" type="radio" name="portfolio-button" value="spring">
+            <label for="spring">Spring</label>
+          </div>
+          <div class="portfolio-button">
+            <input id="summer" type="radio" name="portfolio-button" value="summer">
+            <label for="summer">Summer</label>
+          </div>
+          <div class="portfolio-button">
+            <input id="autumn" type="radio" name="portfolio-button" value="autumn" checked>
+            <label for="autumn">Autumn</label>
+          </div>
+        </div>
         <div class="portfolio-list">
           <div class="portfolio-item"><img class="portfolio-item-img" src="assets/img/portfolio-img-1.jpg" alt="portfolio-img-1"></div>
           <div class="portfolio-item"><img class="portfolio-item-img" src="assets/img/portfolio-img-2.jpg" alt="portfolio-img-2"></div>
