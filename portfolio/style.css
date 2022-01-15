@@ -115,7 +115,7 @@ p {
   background-color: #bdae82;
 
   cursor: pointer;
-  transition: color 0.3s linear;
+  transition: all 0.4s linear;
 }
 
 .button:hover {
@@ -142,7 +142,7 @@ p {
 
   fill: #ffffff;
 
-  transition: fill 0.3s linear;
+  transition: fill 0.4s linear;
 }
 
 .logo-icon:hover {
@@ -166,31 +166,59 @@ p {
   text-decoration: none;
   color: #ffffff;
 
-  transition: color 0.3s linear;
+  transition: all 0.4s linear;
 }
 
 .nav-link:hover {
   color: #bdae82;
 }
 
-.lang-link,
-.lang-slash {
-  font-weight: bold;
-  font-size: 20px;
-  line-height: 50px;
-  color: #ffffff;
-  text-align: center;
-  text-decoration: none;
-}
+.lang-toggle {
+  position: relative;
+	overflow: hidden;
 
-.lang-link.active {
-  color: #bdae82;
-}
-
-.lang {
   display: flex;
   justify-content: space-between;
+  align-items: center;
+  gap: 5px;
   width: 70px;
+}
+
+.lang-toggle-item input[type=radio] {
+	display: none;
+}
+
+.lang-toggle-item label {
+	cursor: pointer;
+
+  line-height: 50px;
+  font-weight: bold;
+	user-select: none;
+}
+
+/* Checked */
+.lang-toggle .en input[type=radio]:checked + label {
+	color: #bdae82;
+}
+
+.lang-toggle .ru input[type=radio]:checked + label {
+	color: #bdae82;
+}
+
+.lang-toggle::after {
+  position: absolute;
+  top: 50%;
+  left: 28px;
+  z-index: 1;
+
+  display: block;
+  width: 20px;
+  height: 3px;
+
+  content: "";
+  background-color: #ffffff;
+
+  transform: rotate(-75deg) translateY(-50%);
 }
 
 /* Hero */
@@ -284,10 +312,14 @@ p {
   background-color: #000000;
 
   cursor: pointer;
-  transition: color, background-color 0.3s linear;
+  transition: all 0.4s linear;
 }
 
 .portfolio-button:hover {
+  color: #ffffff;
+}
+
+.portfolio-button.active:hover {
   color: #ffffff;
 }
 
