@@ -250,6 +250,10 @@ p {
   display: none;
 }
 
+.menu-toggle:hover .menu-toggle-line {
+  background-color: #bdae82;;
+}
+
 .menu-toggle-line {
   display: block;
   width: 50px;
