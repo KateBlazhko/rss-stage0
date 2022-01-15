@@ -787,7 +787,7 @@ input:-webkit-autofill {
 
     height: 100%;
     width: 620px;
-    max-height: 1024px;
+    max-height: 100vh;
 
     background-color: #000000;
 
@@ -949,18 +949,35 @@ input:-webkit-autofill {
 }
 
 @media (max-width: 620px) {
+  /* Menu */
+  .header-container-menu {
+    width: 100%;
+  }
+
   /* Hero */
   .hero-container-inner {
     background-position: -90px -20px;
-}
+  }
 
   /* Skills */
   .skill-item {
     flex-basis: 100%;
-}
+  }
+
 }
 
 @media (max-width: 480px) {
+  /* Menu */
+  .nav-list {
+    width: 80%;
+    padding-left: 0;
+    margin: 0 auto;
+  }
+
+  .nav-item{
+    text-align: center;
+  }
+
   /* Tittle */
   .tittle-wrap {
     max-width: 65%;
