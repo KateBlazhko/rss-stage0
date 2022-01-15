@@ -287,7 +287,8 @@ p {
   transition: color, background-color 0.3s linear;
 }
 
-.portfolio-button:hover {
+.portfolio-button,
+.portfolio-button.active:hover {
   color: #ffffff;
 }
 
