@@ -971,8 +971,8 @@ input:-webkit-autofill {
     flex-direction: column;
     justify-content: end;
     align-items: center;
-    gap: 10px;
-    padding-top: 15px;
+    gap: 5px;
+    padding-top: 20px;
   }
 
   .footer-item-info,
