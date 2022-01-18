@@ -929,7 +929,8 @@ input:-webkit-autofill {
   /* Price */
   .price-container {
     gap: 50px;
-    padding-bottom: 85px;
+    padding-top: 5px;
+    padding-bottom: 80px;
   }
 
   .price-item {
