@@ -115,7 +115,7 @@ p {
   background-color: #bdae82;
 
   cursor: pointer;
-  transition: color 0.3s linear;
+  transition: all 0.4s linear;
 }
 
 .button:hover {
@@ -141,6 +141,7 @@ p {
   padding: 0 20px;
  }
 
+
 .logo-icon {
   display: block;
   width: 50px;
@@ -148,7 +149,7 @@ p {
 
   fill: #ffffff;
 
-  transition: fill 0.3s linear;
+  transition: fill 0.4s linear;
 }
 
 .header-container-inner.fixed {
@@ -186,7 +187,7 @@ p {
   text-decoration: none;
   color: #ffffff;
 
-  transition: color 0.3s linear;
+  transition: all 0.4s linear;
 }
 
 .nav-link:hover {
@@ -252,6 +253,7 @@ p {
 
 .menu-toggle:hover .menu-toggle-line {
   background-color: #bdae82;;
+
 }
 
 .menu-toggle-line {
