@@ -7,6 +7,12 @@ function scrollHeader() {
   }
 }
 
+function changeClassActive(...elements) {
+  for (let name of elements) {
+    name.classList.add('active');
+  }
+}
+
 function toggleMenu() {
   body.classList.toggle('lock');
   menuToggle.classList.toggle('active');
@@ -21,9 +27,34 @@ function closeMenu(event) {
   }
 }
 
+function changeImage(event) {
+  if(event.target.classList.contains('portfolio-button')) {
+    let season = event.target.dataset.season;
+    portfolioImages.forEach((img, index) => img.src = `assets/img/${season}/${index + 1}.jpg`);
+  }
+}
+
+function changeBtn(event) {
+  if(event.target.classList.contains('portfolio-button')) {
+    portfolioBtns.forEach((btn) => btn.classList.remove('active'));
+    changeClassActive(event.target);
+  }
+}
+
+function cachedImages(season) {
+  for(let i = 1; i <= 6; i++) {
+    const img = new Image();
+    img.src = `assets/img/${season}/${i}.jpg`;
+  }
+}
+// =========================================================================
+
+// header scrolling
 const header = document.querySelector('.header-container-inner');
+
 window.addEventListener('scroll', scrollHeader);
 
+// burger-menu
 const body = document.querySelector('body');
 const menuToggle = document.querySelector('.menu-toggle');
 const menuContainer = document.querySelector('.header-container-menu');
@@ -35,6 +66,20 @@ menuToggle.onmousedown = function() {
 
 menuToggle.addEventListener('click', toggleMenu);
 menu.addEventListener('click', closeMenu);
+
+// portfolio change image
+const portfolioImages = document.querySelectorAll('.portfolio-img')
+const portfolioBtns = document.querySelectorAll('.portfolio-button')
+const portfolioForm = document.querySelector('.portfolio-form');
+
+portfolioForm.addEventListener('click', changeImage);
+portfolioForm.addEventListener('click', changeBtn);
+
+// cached image
+const seasons = ['winter', 'spring', 'summer', 'autumn'];
+seasons.forEach(season =>cachedImages(season));
+
+
 
 console.log(`
 Соответствие вёрстке:
