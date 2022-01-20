@@ -1,29 +1,39 @@
-function scrollHeader() {
-  let scrollPos = window.scrollY;
-  if (scrollPos > 0) {
-      header.classList.add('fixed');
-  } else {
-      header.classList.remove('fixed');
+function addClassName(className,...elements) {
+  for (let name of elements) {
+    name.classList.add(className);
   }
 }
 
-function changeClassActive(...elements) {
+function removeClassName(className,...elements) {
   for (let name of elements) {
-    name.classList.add('active');
+    name.classList.remove(className);
+  }
+}
+
+function toggleClassName(className,...elements) {
+  for (let name of elements) {
+    name.classList.toggle(className);
+  }
+}
+
+function scrollHeader() {
+  let scrollPos = window.scrollY;
+  if (scrollPos > 0) {
+      addClassName('fixed', header);
+  } else {
+      removeClassName('fixed', header);
   }
 }
 
 function toggleMenu() {
-  body.classList.toggle('lock');
-  menuToggle.classList.toggle('active');
-  menuContainer.classList.toggle('active');
+  toggleClassName('active', menuToggle, menuContainer);
+  toggleClassName('lock', body);
 }
 
 function closeMenu(event) {
   if (event.target.classList.contains('nav-link')) {
-    menuToggle.classList.remove('active');
-    menuContainer.classList.remove('active');
-    body.classList.remove('lock');
+    removeClassName('active', menuToggle, menuContainer);
+    removeClassName('lock', body);
   }
 }
 
@@ -37,7 +47,7 @@ function changeImage(event) {
 function changeBtn(event) {
   if(event.target.classList.contains('portfolio-button')) {
     portfolioBtns.forEach((btn) => btn.classList.remove('active'));
-    changeClassActive(event.target);
+    addClassName('active', event.target);
   }
 }
 
@@ -45,6 +55,27 @@ function cachedImages(season) {
   for(let i = 1; i <= 6; i++) {
     const img = new Image();
     img.src = `assets/img/${season}/${i}.jpg`;
+  }
+}
+
+function getTranslate(lang) {
+  const elementforTranslate = document.querySelectorAll('[data-i18n]');
+  elementforTranslate.forEach(element => {
+    let text = element.dataset.i18n;
+    element.textContent =  i18nObj[lang][text];
+  });
+
+}
+
+function changeLang(event) {
+  if(event.target.classList.contains('lang')) {
+    let lang = event.target.dataset.i18n;
+    if (lang === 'ru') {
+      addClassName('ru', langToggle, headerMenu);
+    } else {
+      removeClassName('ru', langToggle, headerMenu);
+    }
+    getTranslate(lang);
   }
 }
 // =========================================================================
@@ -77,8 +108,15 @@ portfolioForm.addEventListener('click', changeBtn);
 
 // cached image
 const seasons = ['winter', 'spring', 'summer', 'autumn'];
+
 seasons.forEach(season =>cachedImages(season));
 
+// translated
+import i18nObj from './translate.js';
+const langToggle = document.querySelector('.lang-toggle');
+const headerMenu = document.querySelector('.header-container-menu');
+
+langToggle.addEventListener('click', changeLang);
 
 
 console.log(`
