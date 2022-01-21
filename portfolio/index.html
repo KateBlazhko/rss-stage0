@@ -4,141 +4,158 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="style.css">
-  <link href="https://fonts.googleapis.com/css2?family=Inter&family=Merriweather:wght@700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter&family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
   <link rel="icon" href="assets/img/fav.ico">
+  <link rel="stylesheet" href="style.css">
   <title>portfolio</title>
 </head>
 <body>
   <header class="header">
     <div class="general-container full">
       <div class="header-container">
-        <div class="logo">
-          <svg class="logo-icon">
-            <use xlink:href="./assets/svg/sprite.svg#logo"></use>
-          </svg>
-        </div>
-        <nav class="nav">
-          <ul class="nav-list">
-            <li class="nav-item"><a href="#skill" class="nav-link">Skills</a></li>
-            <li class="nav-item"><a href="#portfolio" class="nav-link">Portfolio</a></li>
-            <li class="nav-item"><a href="#video" class="nav-link">Video</a></li>
-            <li class="nav-item"><a href="#price" class="nav-link">Price</a></li>
-            <li class="nav-item"><a href="#contact" class="nav-link">Contacts</a></li>
-          </ul>
-        </nav>
-        <div class="lang-toggle">
-          <div class="lang-toggle-item en">
-            <input id="en" type="radio" name="lang" value="en" checked>
-            <label for="en">en</label>
+        <div class="header-container-inner">
+          <div class="logo">
+            <svg class="logo-icon">
+              <use xlink:href="./assets/svg/sprite.svg#logo"></use>
+            </svg>
           </div>
-          <div class="lang-toggle-item ru">
-            <input id="ru" type="radio" name="lang" value="ru">
-            <label for="ru">ru</label>
+          <div class="header-container-menu">
+            <nav class="nav">
+              <ul class="nav-list">
+                <li class="nav-item"><a href="#skill" class="nav-link">Skills</a></li>
+                <li class="nav-item"><a href="#portfolio" class="nav-link">Portfolio</a></li>
+                <li class="nav-item"><a href="#video" class="nav-link">Video</a></li>
+                <li class="nav-item"><a href="#price" class="nav-link">Price</a></li>
+                <li class="nav-item"><a href="#contact" class="nav-link">Contacts</a></li>
+              </ul>
+            </nav>
           </div>
-        </div>
-      </div>
-    </div>
+          <div class="menu-toggle">
+            <span class="menu-toggle-line"></span>
+            <span class="menu-toggle-line"></span>
+            <span class="menu-toggle-line"></span>
+          </div>
+          <div class="lang-toggle">
+            <div class="lang-toggle-item en">
+              <input id="en" type="radio" name="lang" value="en" checked>
+              <label for="en">en</label>
+            </div>
+            <div class="lang-toggle-item ru">
+              <input id="ru" type="radio" name="lang" value="ru">
+              <label for="ru">ru</label>
+            </div>
+          </div>
+        </div> <!-- header-container-inner -->
+      </div> <!-- header-container -->
+    </div> <!-- general-container full -->
   </header>
   <main>
-    <section class="section" id="hero">
-      <div class="general-container full">
+    <div class="general-container full">
+      <section class="section" id="hero">
         <div class="hero-container">
-          <div class="hero-inner">
-            <h1 class="hero-tittle">Alexa Rise</h1>
-            <p class="hero-text">Save sincere emotions, romantic feelings and<br>happy moments of life together with professional photographer Alexa Rise</p>
-            <form action="/" method="POST">
-              <button class="button" type="button">Hire me</button>
-            </form>
+          <div class="hero-container-inner">
+            <div class="hero-content">
+              <h1 class="hero-content-tittle">Alexa Rise</h1>
+              <p class="hero-content-text">Save sincere emotions, romantic feelings and happy moments of life together with professional photographer Alexa Rise</p>
+              <form action="/" method="POST">
+                <button class="button" type="button">Hire me</button>
+              </form>
+            </div>
           </div>
         </div>
-      </div>
-    </section>
-    <section class="section" id="skill">
-      <div class="general-container">
+      </section>
+    </div>
+    <div class="general-container">
+      <section class="section" id="skill">
         <div class="tittle-wrap">
           <h2 class="section-tittle">Skills</h2>
         </div>
         <div class="skill-container">
           <div class="skill-item">
-            <svg class="skill-icon">
+            <svg class="skill-item-icon">
               <use xlink:href="./assets/svg/sprite.svg#camera"></use>
             </svg>
-            <h4 class="skill-subtittle">Digital photography</h4>
-            <p class="skill-text">High-quality photos in the studio<br> and on the nature</p>
+            <h4 class="skill-item-subtittle">Digital photography</h4>
+            <p class="skill-item-text">High-quality photos in the studio<br> and on the nature</p>
           </div>
           <div class="skill-item">
-            <svg class="skill-icon">
+            <svg class="skill-item-icon">
               <use xlink:href="./assets/svg/sprite.svg#video"></use>
             </svg>
-            <h4 class="skill-subtittle">Video shooting</h4>
-            <p class="skill-text">Capture your moments so that<br> they always stay with you</p>
+            <h4 class="skill-item-subtittle">Video shooting</h4>
+            <p class="skill-item-text">Capture your moments so that<br> they always stay with you</p>
           </div>
           <div class="skill-item">
-            <svg class="skill-icon">
+            <svg class="skill-item-icon">
               <use xlink:href="./assets/svg/sprite.svg#image"></use>
             </svg>
-            <h4 class="skill-subtittle">Retouch</h4>
-            <p class="skill-text">I strive to make photography<br> surpass reality</p>
+            <h4 class="skill-item-subtittle">Retouch</h4>
+            <p class="skill-item-text">I strive to make photography<br> surpass reality</p>
           </div>
           <div class="skill-item">
-            <svg class="skill-icon">
+            <svg class="skill-item-icon">
               <use xlink:href="./assets/svg/sprite.svg#mic"></use>
             </svg>
-            <h4 class="skill-subtittle">Audio</h4>
-            <p class="skill-text">Professional sounds recording<br> for video, advertising, portfolio</p>
+            <h4 class="skill-item-subtittle">Audio</h4>
+            <p class="skill-item-text">Professional sounds recording<br> for video, advertising, portfolio</p>
           </div>
         </div> <!-- skill-inner -->
-      </div> <!-- general-container -->
-    </section>
-    <section class="section" id="portfolio">
-      <div class="general-container">
+      </section>
+      <section class="section" id="portfolio">
         <div class="tittle-wrap">
           <h2 class="section-tittle">Portfolio</h2>
         </div>
-        <form class="portfolio-form" action="/" method="POST">
-          <button class="portfolio-button" type="button">Winter</button>
-          <button class="portfolio-button" type="button">Spring</button>
-          <button class="portfolio-button" type="button">Summer</button>
-          <button class="portfolio-button active" type="button">Autumn</button>
-        </form>
-        <div class="portfolio-list">
-          <div class="portfolio-item"><img class="portfolio-img" src="assets/img/portfolio-img-1.jpg" alt="portfolio-img-1"></div>
-          <div class="portfolio-item"><img class="portfolio-img" src="assets/img/portfolio-img-2.jpg" alt="portfolio-img-2"></div>
-          <div class="portfolio-item"><img class="portfolio-img" src="assets/img/portfolio-img-3.jpg" alt="portfolio-img-3"></div>
-          <div class="portfolio-item"><img class="portfolio-img" src="assets/img/portfolio-img-4.jpg" alt="portfolio-img-4"></div>
-          <div class="portfolio-item"><img class="portfolio-img" src="assets/img/portfolio-img-5.jpg" alt="portfolio-img-5"></div>
-          <div class="portfolio-item"><img class="portfolio-img" src="assets/img/portfolio-img-6.jpg" alt="portfolio-img-6"></div>
+        <div class="portfolio-form">
+          <div class="portfolio-button">
+            <input id="winter" type="radio" name="portfolio-button" value="winter">
+            <label for="winter">Winter</label>
+          </div>
+          <div class="portfolio-button">
+            <input id="spring" type="radio" name="portfolio-button" value="spring">
+            <label for="spring">Spring</label>
+          </div>
+          <div class="portfolio-button">
+            <input id="summer" type="radio" name="portfolio-button" value="summer">
+            <label for="summer">Summer</label>
+          </div>
+          <div class="portfolio-button">
+            <input id="autumn" type="radio" name="portfolio-button" value="autumn" checked>
+            <label for="autumn">Autumn</label>
+          </div>
         </div>
-      </div>
-    </section>
-    <section class="section" id="video">
-      <div class="general-container">
+        <div class="portfolio-list">
+          <div class="portfolio-item"><img class="portfolio-item-img" src="assets/img/portfolio-img-1.jpg" alt="portfolio-img-1"></div>
+          <div class="portfolio-item"><img class="portfolio-item-img" src="assets/img/portfolio-img-2.jpg" alt="portfolio-img-2"></div>
+          <div class="portfolio-item"><img class="portfolio-item-img" src="assets/img/portfolio-img-3.jpg" alt="portfolio-img-3"></div>
+          <div class="portfolio-item"><img class="portfolio-item-img" src="assets/img/portfolio-img-4.jpg" alt="portfolio-img-4"></div>
+          <div class="portfolio-item"><img class="portfolio-item-img" src="assets/img/portfolio-img-5.jpg" alt="portfolio-img-5"></div>
+          <div class="portfolio-item"><img class="portfolio-item-img" src="assets/img/portfolio-img-6.jpg" alt="portfolio-img-6"></div>
+        </div>
+      </section>
+      <section class="section" id="video">
         <div class="tittle-wrap">
           <h2 class="section-tittle">Video</h2>
         </div>
-        <div class="video-wrap">
-          <div class="video-container">
+        <div class="video-container">
+          <div class="video-container-inner">
             <img class="video" src="assets/img/video-player.jpg" alt="video">
             <button class="video-button" type="button">
-              <svg class="video-icon">
+              <svg class="video-button-icon">
                 <use xlink:href="./assets/svg/sprite.svg#play"></use>
               </svg>
             </button>
             </div>
         </div>
-      </div>
-    </section>
-    <section class="section" id="price">
-      <div class="general-container">
+      </section>
+      <section class="section" id="price">
         <div class="tittle-wrap">
           <h2 class="section-tittle">Price</h2>
         </div>
         <div class="price-container">
           <div class="price-item">
-            <h3 class="price_subtittle">Standart</h3>
-            <div class="price">500 $</div>
-            <div class="price-description">
+            <h3 class="price-item-subtittle">Standart</h3>
+            <div class="price-item-count">500 $</div>
+            <div class="price-item-description">
               <span class="description-item">One location</span>
               <span class="description-item">120 photos in color</span>
               <span class="description-item">12 photos in retouch</span>
@@ -150,9 +167,9 @@
             </form>
           </div>
           <div class="price-item">
-            <h3 class="price_subtittle">Premium</h3>
-            <div class="price">700 $</div>
-            <div class="price-description">
+            <h3 class="price-item-subtittle">Premium</h3>
+            <div class="price-item-count">700 $</div>
+            <div class="price-item-description">
               <span class="description-item">One or two locations</span>
               <span class="description-item">200 photos in color</span>
               <span class="description-item">20 photos in retouch</span>
@@ -164,9 +181,9 @@
             </form>
           </div>
           <div class="price-item">
-            <h3 class="price_subtittle">Gold</h3>
-            <div class="price">1000 $</div>
-            <div class="price-description">
+            <h3 class="price-item-subtittle">Gold</h3>
+            <div class="price-item-count">1000 $</div>
+            <div class="price-item-description">
               <span class="description-item">Three locations or more</span>
               <span class="description-item">300 photos in color</span>
               <span class="description-item">50 photos in retouch</span>
@@ -178,71 +195,73 @@
             </form>
           </div>
         </div> <!-- price-container -->
-      </div> <!-- general-container -->
-    </section>
-    <section class="section" id="contact">
-      <div class="general-container full">
+      </section>
+    </div> <!-- general-container -->
+    <div class="general-container full">
+      <section class="section" id="contact">
         <div class="contact-container">
-          <div class="contact-inner">
-              <h2 class="section-tittle contact">Contact me</h2>
-              <form class="contact-form" action="/" method="POST">
-                <input class="contact-input" type="email" name="E-mail" placeholder="E-mail">
-                <input class="contact-input" type="tel" name="Phone" placeholder="Phone">
-                <textarea class="contact-textarea" name="Message" placeholder="Message"></textarea>
-                <button class="button contact" type="button">Send message</button>
-              </form>
+          <div class="contact-container-inner">
+            <div class="contact-content">
+                <h2 class="section-tittle contact">Contact me</h2>
+                <form class="contact-content-form" action="/" method="POST">
+                  <input class="contact-form-input" type="email" name="E-mail" placeholder="E-mail">
+                  <input class="contact-form-input" type="tel" name="Phone" placeholder="Phone">
+                  <textarea class="contact-form-textarea" name="Message" placeholder="Message"></textarea>
+                  <button class="button contact" type="button">Send message</button>
+                </form>
+            </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </div>
   </main>
   <footer>
     <div class="general-container">
       <div class="footer-container">
         <div class="footer-item">
-          <div class="info">
+          <div class="footer-item-info">
             <span>©</span>
             <span>2022</span>
-            <a class="footer-link" href="https://github.com/KateBlazhko">github</a>
+            <a class="footer-item-link" href="https://github.com/KateBlazhko">github</a>
           </div>
         </div>
         <div class="footer-item center">
-          <a class="footer-link" href="https://rs.school/js-stage0/">Rolling Scopes School</a>
+          <a class="footer-item-link" href="https://rs.school/js-stage0/">Rolling Scopes School</a>
         </div>
         <div class="footer-item">
-          <ul class="icon-list">
-            <li class="icon-item">
-              <a class="footer-link" href="#">
+          <ul class="footer-icon-list">
+            <li class="footer-icon-item">
+              <a class="footer-item-link" href="#">
                 <svg class="footer-icon">
                   <use xlink:href="./assets/svg/sprite.svg#inst"></use>
                 </svg>
               </a>
           </li>
-            <li class="icon-item">
-              <a class="footer-link" href="#">
+            <li class="footer-icon-item">
+              <a class="footer-item-link" href="#">
                 <svg class="footer-icon">
                   <use xlink:href="./assets/svg/sprite.svg#fb"></use>
                 </svg>
               </a>
             </li>
-            <li class="icon-item">
-              <a class="footer-link" href="#">
+            <li class="footer-icon-item">
+              <a class="footer-item-link" href="#">
                 <svg class="footer-icon">
                   <use xlink:href="./assets/svg/sprite.svg#tw"></use>
                 </svg>
               </a>
             </li>
-            <li class="icon-item">
-              <a class="footer-link" href="#">
+            <li class="footer-icon-item">
+              <a class="footer-item-link" href="#">
                 <svg class="footer-icon">
                   <use xlink:href="./assets/svg/sprite.svg#pinterest"></use>
                 </svg>
               </a>
             </li>
           </ul>
-        </div>
-      </div>
-    </div>
+        </div> <!-- footer-item -->
+      </div> <!-- footer-container -->
+    </div> <!-- general-container -->
   </footer>
   <script src="index.js"></script>
 </body>
