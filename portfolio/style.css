@@ -605,7 +605,7 @@ p {
   background-color: rgba(0, 0, 0, 0.5);
 }
 
-.contact-textarea:focus {
+.contact-form-textarea:focus {
   outline: none;
   border: 4px solid #bdae82;
 }
