@@ -1,122 +1,30 @@
-function addClassName(className,...elements) {
-  for (let name of elements) {
-    name.classList.add(className);
-  }
-}
-
-function removeClassName(className,...elements) {
-  for (let name of elements) {
-    name.classList.remove(className);
-  }
-}
-
-function toggleClassName(className,...elements) {
-  for (let name of elements) {
-    name.classList.toggle(className);
-  }
-}
-
-function scrollHeader() {
-  let scrollPos = window.scrollY;
-  if (scrollPos > 0) {
-      addClassName('fixed', header);
-  } else {
-      removeClassName('fixed', header);
-  }
-}
-
-function toggleMenu() {
-  toggleClassName('active', menuToggle, menuContainer);
-  toggleClassName('lock', body);
-}
-
-function closeMenu(event) {
-  if (event.target.classList.contains('nav-link')) {
-    removeClassName('active', menuToggle, menuContainer);
-    removeClassName('lock', body);
-  }
-}
-
-function changeImage(event) {
-  if(event.target.classList.contains('portfolio-button')) {
-    let season = event.target.dataset.season;
-    portfolioImages.forEach((img, index) => img.src = `assets/img/${season}/${index + 1}.jpg`);
-  }
-}
-
-function changeBtn(event) {
-  if(event.target.classList.contains('portfolio-button')) {
-    portfolioBtns.forEach((btn) => btn.classList.remove('active'));
-    addClassName('active', event.target);
-  }
-}
-
-function cachedImages(season) {
-  for(let i = 1; i <= 6; i++) {
-    const img = new Image();
-    img.src = `assets/img/${season}/${i}.jpg`;
-  }
-}
-
-function getTranslate(lang) {
-  const elementforTranslate = document.querySelectorAll('[data-i18n]');
-  elementforTranslate.forEach(element => {
-    let text = element.dataset.i18n;
-    element.textContent =  i18nObj[lang][text];
-  });
-
-}
-
-function changeLang(event) {
-  if(event.target.classList.contains('lang')) {
-    let lang = event.target.dataset.i18n;
-    if (lang === 'ru') {
-      addClassName('ru', langToggle, headerMenu);
-    } else {
-      removeClassName('ru', langToggle, headerMenu);
-    }
-    getTranslate(lang);
-  }
-}
-// =========================================================================
+import * as myFunction from  './functions.js';
 
 // header scrolling
-const header = document.querySelector('.header-container-inner');
-
-window.addEventListener('scroll', scrollHeader);
+window.addEventListener('scroll', myFunction.scrollHeader);
 
 // burger-menu
-const body = document.querySelector('body');
 const menuToggle = document.querySelector('.menu-toggle');
-const menuContainer = document.querySelector('.header-container-menu');
 const menu = document.querySelector('.nav');
 
-menuToggle.onmousedown = function() {
-  return false;
-};
-
-menuToggle.addEventListener('click', toggleMenu);
-menu.addEventListener('click', closeMenu);
+menuToggle.addEventListener('click', myFunction.toggleMenu);
+menu.addEventListener('click', myFunction.closeMenu);
 
 // portfolio change image
-const portfolioImages = document.querySelectorAll('.portfolio-img')
-const portfolioBtns = document.querySelectorAll('.portfolio-button')
 const portfolioForm = document.querySelector('.portfolio-form');
 
-portfolioForm.addEventListener('click', changeImage);
-portfolioForm.addEventListener('click', changeBtn);
+portfolioForm.addEventListener('click', myFunction.changeImage);
+portfolioForm.addEventListener('click', myFunction.changeBtn);
 
 // cached image
 const seasons = ['winter', 'spring', 'summer', 'autumn'];
 
-seasons.forEach(season =>cachedImages(season));
+seasons.forEach(season =>myFunction.cachedImages(season));
 
 // translated
-import i18nObj from './translate.js';
 const langToggle = document.querySelector('.lang-toggle');
-const headerMenu = document.querySelector('.header-container-menu');
 
-langToggle.addEventListener('click', changeLang);
+langToggle.addEventListener('click', myFunction.changeLang);
 
 
 console.log(`
