@@ -94,3 +94,19 @@ export function changeLang(event) {
     getTranslate(lang);
   }
 }
+
+export function changeTheme() {
+  const elementForChangeTheme = document.querySelectorAll('[data-theme]');
+  toggleClassName('light', ...elementForChangeTheme);
+  changeSVG();
+}
+
+function changeSVG() {
+  const themeToggleIcon = document.querySelector('.theme-icon');
+  const themeToggleUse = document.querySelector('.theme-use');
+  if (themeToggleIcon.classList.contains('dark')) {
+    themeToggleUse.setAttributeNS('http://www.w3.org/1999/xlink', 'href', './assets/svg/sprite.svg#sun');
+  } else {
+    themeToggleUse.setAttributeNS('http://www.w3.org/1999/xlink', 'href', './assets/svg/sprite.svg#moon');
+  }
+}

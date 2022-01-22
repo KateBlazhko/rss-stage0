@@ -9,42 +9,47 @@
   <link rel="stylesheet" href="style.css">
   <title>portfolio</title>
 </head>
-<body>
+<body class="body" data-theme="theme">
   <header class="header">
     <div class="general-container full">
       <div class="header-container">
-        <div class="header-container-inner">
+        <div class="header-container-inner" data-theme="theme">
           <div class="logo">
-            <svg class="logo-icon">
+            <svg class="logo-icon" data-theme="theme">
               <use xlink:href="./assets/svg/sprite.svg#logo"></use>
             </svg>
           </div>
-          <div class="header-container-menu">
+          <div class="header-container-menu" data-theme="theme">
             <nav class="nav">
               <ul class="nav-list">
-                <li class="nav-item"><a href="#skill" class="nav-link" data-i18n="skills">Skills</a></li>
-                <li class="nav-item"><a href="#portfolio" class="nav-link" data-i18n="portfolio">Portfolio</a></li>
-                <li class="nav-item"><a href="#video" class="nav-link" data-i18n="video">Video</a></li>
-                <li class="nav-item"><a href="#price" class="nav-link" data-i18n="price">Price</a></li>
-                <li class="nav-item"><a href="#contact" class="nav-link" data-i18n="contacts">Contacts</a></li>
+                <li class="nav-item"><a href="#skill" class="nav-link" data-theme="theme" data-i18n="skills">Skills</a></li>
+                <li class="nav-item"><a href="#portfolio" class="nav-link" data-theme="theme" data-i18n="portfolio">Portfolio</a></li>
+                <li class="nav-item"><a href="#video" class="nav-link" data-theme="theme" data-i18n="video">Video</a></li>
+                <li class="nav-item"><a href="#price" class="nav-link" data-theme="theme" data-i18n="price">Price</a></li>
+                <li class="nav-item"><a href="#contact" class="nav-link" data-theme="theme" data-i18n="contacts">Contacts</a></li>
               </ul>
             </nav>
           </div>
           <div class="menu-toggle">
-            <span class="menu-toggle-line"></span>
-            <span class="menu-toggle-line"></span>
-            <span class="menu-toggle-line"></span>
+            <span class="menu-toggle-line" data-theme="theme"></span>
+            <span class="menu-toggle-line" data-theme="theme"></span>
+            <span class="menu-toggle-line" data-theme="theme"></span>
           </div>
-          <div class="lang-toggle">
+          <div class="lang-toggle" data-theme="theme">
             <div class="lang-toggle-item en">
               <input id="en" type="radio" name="lang" value="en" checked>
-              <label class="lang" for="en" data-i18n="en">en</label>
+              <label class="lang" for="en" data-i18n="en">EN</label>
             </div>
             <span class="lang-dash">/</span>
             <div class="lang-toggle-item ru">
               <input id="ru" type="radio" name="lang" value="ru">
-              <label class="lang" for="ru" data-i18n="ru">ru</label>
+              <label class="lang" for="ru" data-i18n="ru">RU</label>
             </div>
+          </div>
+          <div class="theme">
+            <svg class="theme-icon" data-theme="theme">
+              <use class="theme-use" xlink:href="./assets/svg/sprite.svg#sun"></use>
+            </svg>
           </div>
         </div> <!-- header-container-inner -->
       </div> <!-- header-container -->
@@ -54,12 +59,12 @@
     <div class="general-container full">
       <section class="section" id="hero">
         <div class="hero-container">
-          <div class="hero-container-inner">
+          <div class="hero-container-inner" data-theme="theme">
             <div class="hero-content">
               <h1 class="hero-content-title" data-i18n="hero-title">Alexa Rise</h1>
               <p class="hero-content-text" data-i18n="hero-text">Save sincere emotions, romantic feelings and happy moments of life together with professional photographer Alexa Rise</p>
               <form action="/" method="POST">
-                <button class="button" data-i18n="hero-button" type="button">Hire me</button>
+                <button class="button hero" data-theme="theme" data-i18n="hero-button" type="button">Hire me</button>
               </form>
             </div>
           </div>
@@ -68,8 +73,8 @@
     </div>
     <div class="general-container">
       <section class="section" id="skill">
-        <div class="title-wrap">
-          <h2 class="section-title" data-i18n="skills">Skills</h2>
+        <div class="title-wrap" data-theme="theme">
+          <h2 class="section-title" data-theme="theme" data-i18n="skills">Skills</h2>
         </div>
         <div class="skill-container">
           <div class="skill-item">
@@ -103,14 +108,14 @@
         </div> <!-- skill-inner -->
       </section>
       <section class="section" id="portfolio">
-        <div class="title-wrap">
-          <h2 class="section-title" data-i18n="portfolio">Portfolio</h2>
+        <div class="title-wrap" data-theme="theme">
+          <h2 class="section-title" data-theme="theme" data-i18n="portfolio">Portfolio</h2>
         </div>
         <div class="portfolio-form">
-          <button class="portfolio-button" data-season="winter" data-i18n="winter" type="button">Winter</button>
-          <button class="portfolio-button" data-season="spring" data-i18n="spring" type="button">Spring</button>
-          <button class="portfolio-button" data-season="summer" data-i18n="summer" type="button">Summer</button>
-          <button class="portfolio-button" data-season="autumn" data-i18n="autumn" type="button">Autumn</button>
+          <button class="portfolio-button" data-theme="theme" data-season="winter" data-i18n="winter" type="button">Winter</button>
+          <button class="portfolio-button" data-theme="theme" data-season="spring" data-i18n="spring" type="button">Spring</button>
+          <button class="portfolio-button" data-theme="theme" data-season="summer" data-i18n="summer" type="button">Summer</button>
+          <button class="portfolio-button" data-theme="theme" data-season="autumn" data-i18n="autumn" type="button">Autumn</button>
         </div>
         <div class="portfolio-list">
           <div class="portfolio-item"><img class="portfolio-img" src="assets/img/autumn/1.jpg" alt="portfolio-img-1"></div>
@@ -122,14 +127,14 @@
         </div>
       </section>
       <section class="section" id="video">
-        <div class="title-wrap">
-          <h2 class="section-title" data-i18n="video">Video</h2>
+        <div class="title-wrap" data-theme="theme">
+          <h2 class="section-title" data-theme="theme" data-i18n="video">Video</h2>
         </div>
         <div class="video-container">
           <div class="video-container-inner">
             <img class="video" src="assets/img/video-player.jpg" alt="video">
             <button class="video-button" type="button">
-              <svg class="video-button-icon">
+              <svg class="video-button-icon" data-theme="theme">
                 <use xlink:href="./assets/svg/sprite.svg#play"></use>
               </svg>
             </button>
@@ -137,13 +142,13 @@
         </div>
       </section>
       <section class="section" id="price">
-        <div class="title-wrap">
-          <h2 class="section-title" data-i18n="price">Price</h2>
+        <div class="title-wrap" data-theme="theme">
+          <h2 class="section-title" data-theme="theme" data-i18n="price">Price</h2>
         </div>
         <div class="price-container">
           <div class="price-item">
-            <h3 class="price-item-subtitle" data-i18n="price-subtitle-standart">Standart</h3>
-            <div class="price-item-count">500 $</div>
+            <h3 class="price-item-subtitle" data-i18n="price-subtitle-standart">Standard</h3>
+            <div class="price-item-count" data-theme="theme">500 $</div>
             <div class="price-item-description">
               <span class="description-item" data-i18n="price-description-1-span-1">One location</span>
               <span class="description-item" data-i18n="price-description-1-span-2">120 photos in color</span>
@@ -152,12 +157,12 @@
               <span class="description-item" data-i18n="price-description-1-span-5">Make up, visage</span>
             </div>
             <form action="/" method="POST">
-              <button class="button" data-i18n="order" type="button">Order shooting</button>
+              <button class="button price" data-theme="theme" data-i18n="order" type="button">Order shooting</button>
             </form>
           </div>
           <div class="price-item">
             <h3 class="price-item-subtitle" data-i18n="price-subtitle-premium">Premium</h3>
-            <div class="price-item-count">700 $</div>
+            <div class="price-item-count" data-theme="theme">700 $</div>
             <div class="price-item-description">
               <span class="description-item" data-i18n="price-description-2-span-1">One or two locations</span>
               <span class="description-item" data-i18n="price-description-2-span-2">200 photos in color</span>
@@ -166,12 +171,12 @@
               <span class="description-item" data-i18n="price-description-2-span-5">Make up, visage</span>
             </div>
             <form action="/" method="POST">
-              <button class="button" data-i18n="order" type="button">Order shooting</button>
+              <button class="button price" data-theme="theme" data-i18n="order" type="button">Order shooting</button>
             </form>
           </div>
           <div class="price-item">
             <h3 class="price-item-subtitle" data-i18n="price-subtitle-gold">Gold</h3>
-            <div class="price-item-count">1000 $</div>
+            <div class="price-item-count" data-theme="theme">1000 $</div>
             <div class="price-item-description">
               <span class="description-item" data-i18n="price-description-3-span-1">Three locations or more</span>
               <span class="description-item" data-i18n="price-description-3-span-2">300 photos in color</span>
@@ -180,7 +185,7 @@
               <span class="description-item" data-i18n="price-description-3-span-5">Make up, visage, hairstyle</span>
             </div>
             <form action="/" method="POST">
-              <button class="button" data-i18n="order" type="button">Order shooting</button>
+              <button class="button price" data-theme="theme" data-i18n="order" type="button">Order shooting</button>
             </form>
           </div>
         </div> <!-- price-container -->
@@ -189,14 +194,14 @@
     <div class="general-container full">
       <section class="section" id="contact">
         <div class="contact-container">
-          <div class="contact-container-inner">
+          <div class="contact-container-inner" data-theme="theme">
             <div class="contact-content">
-                <h2 class="section-title contact" data-i18n="contact-me">Contact me</h2>
+                <h2 class="section-title contact" data-theme="theme" data-i18n="contact-me">Contact me</h2>
                 <form class="contact-content-form" action="/" method="POST">
-                  <input class="contact-form-input" type="email" name="E-mail" placeholder="E-mail">
-                  <input class="contact-form-input" type="tel" name="Phone" placeholder="Phone">
-                  <textarea class="contact-form-textarea" name="Message" placeholder="Message"></textarea>
-                  <button class="button contact" data-i18n="send-message" type="button">Send message</button>
+                  <input class="contact-form-input" data-theme="theme" type="email" name="E-mail" placeholder="E-mail">
+                  <input class="contact-form-input" data-theme="theme" type="tel" name="Phone" placeholder="Phone">
+                  <textarea class="contact-form-textarea" data-theme="theme" name="Message" placeholder="Message"></textarea>
+                  <button class="button contact" data-theme="theme" data-i18n="send-message" type="button">Send message</button>
                 </form>
             </div>
           </div>
@@ -211,38 +216,38 @@
           <div class="footer-item-info">
             <span>©</span>
             <span>2022</span>
-            <a class="footer-item-link" href="https://github.com/KateBlazhko">github</a>
+            <a class="footer-item-link" data-theme="theme" href="https://github.com/KateBlazhko">github</a>
           </div>
         </div>
         <div class="footer-item center">
-          <a class="footer-item-link" href="https://rs.school/js-stage0/">Rolling Scopes School</a>
+          <a class="footer-item-link" data-theme="theme" href="https://rs.school/js-stage0/">Rolling Scopes School</a>
         </div>
         <div class="footer-item">
           <ul class="footer-icon-list">
             <li class="footer-icon-item">
-              <a class="footer-item-link" href="#">
-                <svg class="footer-icon">
+              <a class="footer-item-link" data-theme="theme" href="#">
+                <svg class="footer-icon" data-theme="theme">
                   <use xlink:href="./assets/svg/sprite.svg#inst"></use>
                 </svg>
               </a>
           </li>
             <li class="footer-icon-item">
-              <a class="footer-item-link" href="#">
-                <svg class="footer-icon">
+              <a class="footer-item-link" data-theme="theme" href="#">
+                <svg class="footer-icon" data-theme="theme">
                   <use xlink:href="./assets/svg/sprite.svg#fb"></use>
                 </svg>
               </a>
             </li>
             <li class="footer-icon-item">
-              <a class="footer-item-link" href="#">
-                <svg class="footer-icon">
+              <a class="footer-item-link" data-theme="theme" href="#">
+                <svg class="footer-icon" data-theme="theme">
                   <use xlink:href="./assets/svg/sprite.svg#tw"></use>
                 </svg>
               </a>
             </li>
             <li class="footer-icon-item">
-              <a class="footer-item-link" href="#">
-                <svg class="footer-icon">
+              <a class="footer-item-link" data-theme="theme" href="#">
+                <svg class="footer-icon" data-theme="theme">
                   <use xlink:href="./assets/svg/sprite.svg#pinterest"></use>
                 </svg>
               </a>

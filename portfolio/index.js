@@ -10,7 +10,7 @@ const menu = document.querySelector('.nav');
 menuToggle.addEventListener('click', myFunction.toggleMenu);
 menu.addEventListener('click', myFunction.closeMenu);
 
-// portfolio change image
+// change image for portfolio
 const portfolioForm = document.querySelector('.portfolio-form');
 
 portfolioForm.addEventListener('click', myFunction.changeImage);
@@ -26,6 +26,9 @@ const langToggle = document.querySelector('.lang-toggle');
 
 langToggle.addEventListener('click', myFunction.changeLang);
 
+// change theme
+const themeToggle = document.querySelector('.theme');
+themeToggle.addEventListener('click', myFunction.changeTheme);
 
 console.log(`
 Соответствие вёрстке:
