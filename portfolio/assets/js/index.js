@@ -1,34 +1,35 @@
-import * as myFunction from  './functions.js';
+import * as mainFunction from  './functions.js';
+import * as localStorage from  './localStorage.js';
+
+// local storage
+window.addEventListener('beforeunload', localStorage.setLocalStorage);
+window.addEventListener('load', localStorage.getLocalStorage);
+
+// translated
+const langToggle = document.querySelector('.lang-toggle');
+langToggle.addEventListener('click', mainFunction.changeLang);
 
 // header scrolling
-window.addEventListener('scroll', myFunction.scrollHeader);
+window.addEventListener('scroll', mainFunction.scrollHeader);
 
 // burger-menu
 const menuToggle = document.querySelector('.menu-toggle');
 const menu = document.querySelector('.nav');
-
-menuToggle.addEventListener('click', myFunction.toggleMenu);
-menu.addEventListener('click', myFunction.closeMenu);
+menuToggle.addEventListener('click', mainFunction.toggleMenu);
+menu.addEventListener('click', mainFunction.closeMenu);
 
 // change image for portfolio
 const portfolioForm = document.querySelector('.portfolio-form');
-
-portfolioForm.addEventListener('click', myFunction.changeImage);
-portfolioForm.addEventListener('click', myFunction.changeBtn);
+portfolioForm.addEventListener('click', mainFunction.changeImage);
+portfolioForm.addEventListener('click', mainFunction.changeBtn);
 
 // cached image
 const seasons = ['winter', 'spring', 'summer', 'autumn'];
-
-seasons.forEach(season =>myFunction.cachedImages(season));
-
-// translated
-const langToggle = document.querySelector('.lang-toggle');
-
-langToggle.addEventListener('click', myFunction.changeLang);
+seasons.forEach(season =>mainFunction.cachedImages(season));
 
 // change theme
 const themeToggle = document.querySelector('.theme');
-themeToggle.addEventListener('click', myFunction.changeTheme);
+themeToggle.addEventListener('click', mainFunction.changeTheme);
 
 console.log(`
 Соответствие вёрстке:

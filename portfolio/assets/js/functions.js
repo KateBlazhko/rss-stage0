@@ -1,3 +1,5 @@
+import i18nObj from './translate.js';
+
 export function addClassName(className,...elements) {
   for (let element of elements) {
     element.classList.add(className);
@@ -69,29 +71,33 @@ export function cachedImages(season) {
   for(let i = 1; i <= 6; i++) {
     const img = new Image();
     img.src = `assets/img/${season}/${i}.jpg`;
+    console.log(img.src);
   }
 }
 
-import i18nObj from './translate.js';
+export function changeLang(event) {
+  if (event.target.classList.contains('lang')) {
+    let lang = event.target.dataset.i18n;
+    getTranslate(lang);
+  }
+}
+
 export function getTranslate(lang) {
   const elementforTranslate = document.querySelectorAll('[data-i18n]');
   elementforTranslate.forEach(element => {
     let text = element.dataset.i18n;
     element.textContent =  i18nObj[lang][text];
   });
+  changeWidthToggle(lang);
 }
 
-export function changeLang(event) {
+function changeWidthToggle(lang) {
   const langToggle = document.querySelector('.lang-toggle');
   const headerMenu = document.querySelector('.header-container-menu');
-  if(event.target.classList.contains('lang')) {
-    let lang = event.target.dataset.i18n;
-    if (lang === 'ru') {
-      addClassName('ru', langToggle, headerMenu);
-    } else {
-      removeClassName('ru', langToggle, headerMenu);
-    }
-    getTranslate(lang);
+  if (lang === 'ru') {
+    addClassName('ru', langToggle, headerMenu);
+  } else {
+    removeClassName('ru', langToggle, headerMenu);
   }
 }
 
@@ -104,9 +110,9 @@ export function changeTheme() {
 function changeSVG() {
   const themeToggleIcon = document.querySelector('.theme-icon');
   const themeToggleUse = document.querySelector('.theme-use');
-  if (themeToggleIcon.classList.contains('dark')) {
-    themeToggleUse.setAttributeNS('http://www.w3.org/1999/xlink', 'href', './assets/svg/sprite.svg#sun');
-  } else {
+  if (themeToggleIcon.classList.contains('light')) {
     themeToggleUse.setAttributeNS('http://www.w3.org/1999/xlink', 'href', './assets/svg/sprite.svg#moon');
+  } else {
+    themeToggleUse.setAttributeNS('http://www.w3.org/1999/xlink', 'href', './assets/svg/sprite.svg#sun');
   }
 }
