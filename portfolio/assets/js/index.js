@@ -31,7 +31,7 @@ seasons.forEach(season =>mainFunction.cachedImages(season));
 const themeToggle = document.querySelector('.theme');
 themeToggle.addEventListener('click', mainFunction.changeTheme);
 
-//
+// click effect
 const button = document.querySelectorAll('.button');
 button.forEach(element => {
   element.addEventListener('click', mainFunction.createClickEffect)
