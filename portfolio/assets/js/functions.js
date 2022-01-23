@@ -71,7 +71,6 @@ export function cachedImages(season) {
   for(let i = 1; i <= 6; i++) {
     const img = new Image();
     img.src = `assets/img/${season}/${i}.jpg`;
-    console.log(img.src);
   }
 }
 
@@ -107,7 +106,7 @@ export function changeTheme() {
   changeSVG();
 }
 
-function changeSVG() {
+export function changeSVG() {
   const themeToggleIcon = document.querySelector('.theme-icon');
   const themeToggleUse = document.querySelector('.theme-use');
   if (themeToggleIcon.classList.contains('light')) {
@@ -115,4 +114,24 @@ function changeSVG() {
   } else {
     themeToggleUse.setAttributeNS('http://www.w3.org/1999/xlink', 'href', './assets/svg/sprite.svg#sun');
   }
+}
+
+export function createClickEffect(event) {
+  let element = event.target;
+  const x = event.clientX;
+  const y = event.clientY;
+
+  const buttonCoord = element.getBoundingClientRect();
+
+  const xInside = x - buttonCoord.x;
+  const yInside = y - buttonCoord.y;
+
+  const circle = document.createElement('span');
+  circle.classList.add('circle');
+  circle.style.top = yInside + 'px';
+  circle.style.left = xInside + 'px';
+
+  element.append(circle);
+
+  setTimeout(() => circle.remove(), 500);
 }

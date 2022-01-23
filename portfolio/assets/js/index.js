@@ -31,6 +31,12 @@ seasons.forEach(season =>mainFunction.cachedImages(season));
 const themeToggle = document.querySelector('.theme');
 themeToggle.addEventListener('click', mainFunction.changeTheme);
 
+//
+const button = document.querySelectorAll('.button');
+button.forEach(element => {
+  element.addEventListener('click', mainFunction.createClickEffect)
+});
+
 console.log(`
 Соответствие вёрстке:
   Вёрстка соответствует макету Ширина экрана 768px +48:
