@@ -27,8 +27,7 @@ export function getLocalStorage() {
 
 function getTheme(theme) {
   if (theme === 'light') {
-    const elementForChangeTheme = document.querySelectorAll('[data-theme]');
-    mainFunction.addClassName('light', ...elementForChangeTheme);
+    mainFunction.addClassName('light', document.documentElement);
     mainFunction.changeSVG();
   }
 }

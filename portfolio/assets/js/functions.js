@@ -101,15 +101,12 @@ function changeWidthToggle(lang) {
 }
 
 export function changeTheme() {
-  const elementForChangeTheme = document.querySelectorAll('[data-theme]');
-  toggleClassName('light', ...elementForChangeTheme);
-  changeSVG();
+  toggleClassName('light', document.documentElement);
 }
 
 export function changeSVG() {
-  const themeToggleIcon = document.querySelector('.theme-icon');
   const themeToggleUse = document.querySelector('.theme-use');
-  if (themeToggleIcon.classList.contains('light')) {
+  if (document.documentElement.classList.contains('light')) {
     themeToggleUse.setAttributeNS('http://www.w3.org/1999/xlink', 'href', './assets/svg/sprite.svg#moon');
   } else {
     themeToggleUse.setAttributeNS('http://www.w3.org/1999/xlink', 'href', './assets/svg/sprite.svg#sun');

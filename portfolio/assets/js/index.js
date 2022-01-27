@@ -30,6 +30,7 @@ seasons.forEach(season =>mainFunction.cachedImages(season));
 // change theme
 const themeToggle = document.querySelector('.theme');
 themeToggle.addEventListener('click', mainFunction.changeTheme);
+themeToggle.addEventListener('click', mainFunction. changeSVG);
 
 // click effect
 const button = document.querySelectorAll('.button');
