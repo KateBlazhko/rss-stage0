@@ -6,8 +6,7 @@ export function setLocalStorage() {
   localStorage.setItem('lang', lang);
 
   let theme = 'dark';
-  const themeToggleIcon = document.querySelector('.theme-icon');
-  if (themeToggleIcon.classList.contains('light')) {
+  if (document.documentElement.classList.contains('light')) {
     theme = 'light';
   }
   localStorage.setItem('theme', theme);
