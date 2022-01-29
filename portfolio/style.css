@@ -28,6 +28,8 @@ html {
 
   --hero-bg-img: url('assets/img/bg.jpg');
   --contacts-bg-img: url('assets/img/contacts.jpg');
+  --SVG-sun: visible;
+  --SVG-moon: hidden;
 
   scroll-behavior: smooth;
 }
@@ -62,6 +64,8 @@ html.light {
 
   --hero-bg-img: url('assets/img/bg-light.jpg');
   --contacts-bg-img: url('assets/img/contacts-light.jpg');
+  --SVG-sun: hidden;
+  --SVG-moon: visible;
 }
 
 body {
@@ -299,6 +303,7 @@ p {
   color: var(--hover-link-color);
 }
 
+
 .theme-icon {
   display: block;
   width: 45px;
@@ -307,6 +312,14 @@ p {
   fill: var(--icon-main-color);
 
   transition: fill 0.4s linear;
+}
+
+.theme-use.moon {
+  visibility: var(--SVG-moon);
+}
+
+.theme-use.sun {
+  visibility: var(--SVG-sun);
 }
 
 .theme-icon:hover {

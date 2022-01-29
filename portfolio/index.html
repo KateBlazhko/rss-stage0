@@ -4,12 +4,13 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="./js/getLocalStorage.js"></script>
   <link href="https://fonts.googleapis.com/css2?family=Inter&family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
   <link rel="icon" href="assets/img/fav.ico">
   <link rel="stylesheet" href="style.css">
   <title>portfolio</title>
 </head>
-<body class="body" style="visibility: hidden">
+<body class="body">
   <header class="header">
     <div class="general-container full">
       <div class="header-container">
@@ -48,7 +49,8 @@
           </div>
           <div class="theme">
             <svg class="theme-icon">
-              <use class="theme-use" xlink:href="./assets/svg/sprite.svg#sun"></use>
+              <use class="theme-use sun" xlink:href="./assets/svg/sprite.svg#sun"></use>
+              <use class="theme-use moon" xlink:href="./assets/svg/sprite.svg#moon"></use>
             </svg>
           </div>
         </div> <!-- header-container-inner -->
@@ -257,6 +259,6 @@
       </div> <!-- footer-container -->
     </div> <!-- general-container -->
   </footer>
-  <script type="module" src="./assets/js/index.js"></script>
+  <script type="module" src="./js/index.js"></script>
 </body>
 </html>

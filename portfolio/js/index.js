@@ -1,5 +1,5 @@
 import {addClassName, removeClassName, toggleClassName} from  './functions.js';
-import {setLocalStorage, getLocalStorage} from  './localStorage.js';
+//import {setLocalStorage, getLocalStorage} from  './localStorage.js';
 import i18nObj from './translate.js';
 
 function scrollHeader() {
@@ -12,7 +12,6 @@ function scrollHeader() {
 }
 
 function toggleMenu() {
-  const menuToggle = document.querySelector('.menu-toggle');
   const menuContainer = document.querySelector('.header-container-menu');
   const body = document.querySelector('body');
 
@@ -46,7 +45,7 @@ function changeImage(event) {
 function changeBtn(event) {
   const portfolioBtns = document.querySelectorAll('.portfolio-button');
   if(event.target.classList.contains('portfolio-button')) {
-    portfolioBtns.forEach((btn) => btn.classList.remove('active'));
+    removeClassName('active', ...portfolioBtns);
     addClassName('active', event.target);
   }
 }
@@ -61,11 +60,21 @@ function cachedImages(season) {
 function changeLang(event) {
   if (event.target.classList.contains('lang')) {
     let lang = event.target.dataset.i18n;
+
     getTranslate(lang);
   }
 }
 
-function getTranslate(lang) {
+function changeLangLS() {
+  if (document.documentElement.dataset.lang) {
+    let lang = document.documentElement.dataset.lang;
+    let input = document.getElementById(lang);
+    input.checked = true;
+    getTranslate(lang);
+  }
+}
+
+export function getTranslate(lang) {
   const elementforTranslate = document.querySelectorAll('[data-i18n]');
   elementforTranslate.forEach(element => {
     let text = element.dataset.i18n;
@@ -84,17 +93,20 @@ function changeWidthToggle(lang) {
   }
 }
 
-function changeTheme() {
+export function changeTheme() {
   toggleClassName('light', document.documentElement);
 }
 
-function changeSVG() {
-  const themeToggleUse = document.querySelector('.theme-use');
+function setLocalStorage() {
+  const checkedlang = document.querySelector('input[name="lang"]:checked');
+  let lang = checkedlang.value;
+  localStorage.setItem('lang', lang);
+
+  let theme = 'dark';
   if (document.documentElement.classList.contains('light')) {
-    themeToggleUse.setAttributeNS('http://www.w3.org/1999/xlink', 'href', './assets/svg/sprite.svg#moon');
-  } else {
-    themeToggleUse.setAttributeNS('http://www.w3.org/1999/xlink', 'href', './assets/svg/sprite.svg#sun');
+    theme = 'light';
   }
+  localStorage.setItem('theme', theme);
 }
 
 function createClickEffect(event) {
@@ -118,17 +130,12 @@ function createClickEffect(event) {
 
 }
 
-window.onload = function () {
-  setTimeout(function () {
-      document.getElementsByTagName("body")[0].style.visibility = "visible";
-  }, 500);
-}
 //=============================================================================
 // local storage
 window.addEventListener('beforeunload', setLocalStorage);
-window.addEventListener('load', getLocalStorage);
 
 // translated
+window.addEventListener('DOMContentLoaded', changeLangLS);
 const langToggle = document.querySelector('.lang-toggle');
 langToggle.addEventListener('click', changeLang);
 
@@ -153,7 +160,6 @@ seasons.forEach(season => cachedImages(season));
 // change theme
 const themeToggle = document.querySelector('.theme');
 themeToggle.addEventListener('click', changeTheme);
-themeToggle.addEventListener('click', changeSVG);
 
 // click effect
 const button = document.querySelectorAll('.button');
