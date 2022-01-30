@@ -400,6 +400,10 @@ p {
   transform: translateY(-13px) rotate(-45deg);
 }
 
+.menu-toggle.active:hover .menu-toggle-line {
+  background-color: var(--icon-main-color);
+}
+
 /* Hero */
 .hero-container {
   position: relative;
