@@ -78,6 +78,9 @@ export function getTranslate(lang) {
   const elementforTranslate = document.querySelectorAll('[data-i18n]');
   elementforTranslate.forEach(element => {
     let text = element.dataset.i18n;
+    if (element.placeholder) {
+      element.placeholder = i18nObj[lang][text];
+    }
     element.textContent =  i18nObj[lang][text];
   });
   changeWidthToggle(lang);
