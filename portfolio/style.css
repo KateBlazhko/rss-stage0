@@ -240,7 +240,7 @@ p {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 30px;
+  gap: 35px;
   width: 100%;
   height: 90px;
   padding: 0 20px;
@@ -275,7 +275,7 @@ p {
 }
 
 .header-container-menu {
-  width: 450px;
+  width: 445px;
   margin-left: auto;
 }
 
@@ -334,11 +334,11 @@ p {
   justify-content: space-between;
   align-items: center;
   gap: 5px;
-  width: 80px;
+  width: 90px;
 }
 
 .lang-toggle.ru {
-  width: 110px;
+  min-width: 110px;
 }
 
 .lang-toggle-item input[type=radio] {
@@ -856,6 +856,10 @@ p {
    /* General container */
    .general-container {
     max-width: 1024px;
+  }
+
+  .header-container-inner {
+    gap: 20px;
   }
 
   /* Hero */
