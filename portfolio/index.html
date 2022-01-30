@@ -143,6 +143,43 @@
             </div>
         </div>
       </section>
+      <section class="section" id="video-player">
+        <div class="title-wrap">
+          <h2 class="section-title" data-i18n="video">Video</h2>
+        </div>
+        <div class="video-container">
+            <div class="player">
+              <button class="video-button" type="button">
+                <svg class="video-button-icon">
+                  <use xlink:href="./assets/svg/sprite.svg#play"></use>
+                </svg>
+              </button>
+              <div class="player-video-wrap">
+                <video class="player-video" preload="metadata" src="assets/video/video.mp4"></video>
+              </div>
+              <div class="player-controls">
+                <button class="player-toggle play-pause">
+                  <svg class="player-button-icon play">
+                    <use xlink:href="./assets/svg/sprite.svg#play-video"></use>
+                  </svg>
+                  <svg class="player-button-icon pause">
+                    <use xlink:href="./assets/svg/sprite.svg#pause"></use>
+                  </svg>
+                </button>
+                <input class="player-slider" type="range" name="progress" min="0" max="1" step="0.01" value="1">
+                <button class="player-toggle volume">
+                  <svg class="player-button-icon on">
+                    <use xlink:href="./assets/svg/sprite.svg#volume"></use>
+                  </svg>
+                  <svg class="player-button-icon off">
+                    <use xlink:href="./assets/svg/sprite.svg#mute"></use>
+                  </svg>
+                </button>
+                <input class="player-slider" type="range" name="volume" min="0" max="1" step="0.05" value="1">
+              </div>
+            </div>
+        </div>
+      </section>
       <section class="section" id="price">
         <div class="title-wrap">
           <h2 class="section-title" data-i18n="price">Price</h2>
