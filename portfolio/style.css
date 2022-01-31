@@ -638,7 +638,6 @@ p {
   object-fit: cover;
 
   background-color: var(--body-color);
-
 }
 
 .player-controls {
@@ -658,8 +657,8 @@ p {
 
 .player-button-icon {
   display: block;
-  width: 40px;
-  height: 40px;
+  width: 30px;
+  height: 30px;
   visibility: visible;
   fill: var(--icon-main-color);
 }
@@ -677,23 +676,27 @@ p {
 }
 
 .player-slider {
-  background: linear-gradient(to right, var(--text-tittle-color) 0%, var(--text-tittle-color) 38%, var(--input-unfill-color) 38%, var(--input-unfill-color) 100%);
-  border: solid 1px var(--text-tittle-color);
-  border-radius: 0px;
   height: 10px;
   min-width: 0;
+  border: solid 1px var(--text-tittle-color);
+  border-radius: 0px;
+
   outline: none;
   transition: background 450ms ease-in;
 
   -webkit-appearance: none;
 }
 
-.player-slider[name="progress"] {
-  flex-basis: 75%
+.player-slider[name="currentTime"] {
+  flex-basis: 75%;
+
+  background: linear-gradient(to right, var(--text-tittle-color) 0%, var(--text-tittle-color) 1%, var(--input-unfill-color) 1%, var(--input-unfill-color) 100%);
 }
 
 .player-slider[name="volume"] {
-  flex-basis: 15%
+  flex-basis: 15%;
+
+  background: linear-gradient(to right, var(--text-tittle-color) 0%, var(--text-tittle-color) 100%, var(--input-unfill-color) 100%, var(--input-unfill-color) 100%);
 }
 
 .player-slider::-webkit-slider-thumb {
