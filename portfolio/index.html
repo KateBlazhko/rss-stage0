@@ -25,7 +25,7 @@
               <ul class="nav-list">
                 <li class="nav-item"><a href="#skill" class="nav-link" data-i18n="skills">Skills</a></li>
                 <li class="nav-item"><a href="#portfolio" class="nav-link" data-i18n="portfolio">Portfolio</a></li>
-                <li class="nav-item"><a href="#video" class="nav-link" data-i18n="video">Video</a></li>
+                <li class="nav-item"><a href="#player" class="nav-link" data-i18n="video">Video</a></li>
                 <li class="nav-item"><a href="#price" class="nav-link" data-i18n="price">Price</a></li>
                 <li class="nav-item"><a href="#contact" class="nav-link" data-i18n="contacts">Contacts</a></li>
               </ul>
@@ -128,22 +128,7 @@
           <div class="portfolio-item"><img class="portfolio-img" src="assets/img/autumn/6.jpg" alt="portfolio-img-6"></div>
         </div>
       </section>
-      <section class="section" id="video">
-        <div class="title-wrap">
-          <h2 class="section-title" data-i18n="video">Video</h2>
-        </div>
-        <div class="video-container">
-          <div class="video-container-inner">
-            <img class="video" src="assets/img/video-player.jpg" alt="video">
-            <button class="video-button" type="button">
-              <svg class="video-button-icon">
-                <use xlink:href="./assets/svg/sprite.svg#play"></use>
-              </svg>
-            </button>
-            </div>
-        </div>
-      </section>
-      <section class="section" id="video-player">
+      <section class="section" id="player">
         <div class="title-wrap">
           <h2 class="section-title" data-i18n="video">Video</h2>
         </div>
@@ -167,7 +152,7 @@
                     <use xlink:href="./assets/svg/sprite.svg#pause"></use>
                   </svg>
                 </button>
-                <input class="player-slider" type="range" name="currentTime" min="0" value="0">
+                <input class="player-slider" type="range" name="currentTime" min="0" max="100" step="1" value="0">
                 <button class="player-toggle volume">
                   <svg class="player-button-icon on">
                     <use xlink:href="./assets/svg/sprite.svg#volume"></use>
