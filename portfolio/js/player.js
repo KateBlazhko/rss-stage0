@@ -7,6 +7,13 @@ const currentTime = player.querySelector('.player-slider[name="currentTime"]');
 const volume = player.querySelector('.player-slider[name="volume"]');
 const volumeBtn = player.querySelector('.volume');
 
+function closePoster() {
+  if (poster.style.display = 'block') {
+    poster.style.opacity = '0';
+    setTimeout(() => poster.style.display = 'none', 500);
+  }
+}
+
 function toggleVideo() {
   const act = (video.paused) ? 'play' : 'pause';
   video[act]();
@@ -30,8 +37,7 @@ function changePlayBtn() {
 }
 
 function getInputColor(inputRange) {
-  const sampleColor = document.querySelector('.section-title');
-  const filledColor = window.getComputedStyle(sampleColor).color;
+  let filledColor = getComputedStyle(document.documentElement).getPropertyValue('--text-tittle-color');
 
   let percent = inputRange.value / inputRange.max * 100;
   if (percent < 50) { percent = Math.ceil(percent)}
@@ -39,26 +45,19 @@ function getInputColor(inputRange) {
   inputRange.style.background = `linear-gradient(to right, ${filledColor} 0%, ${filledColor} ${percent}%, #ffffff ${percent}%, #ffffff 100%)`;
 }
 
-function getInputColorStart() {
-  const sampleColor = document.querySelector('.section-title');
-  const filledColor = window.getComputedStyle(sampleColor).color;
-
-  let percent = this.value / this.max * 100;
-  if (percent < 50) { percent = Math.ceil(percent)}
-  if (percent >= 50) { percent = Math.floor(percent)}
-  this.style.background = `linear-gradient(to right, ${filledColor} 0%, ${filledColor} ${percent}%, #ffffff ${percent}%, #ffffff 100%)`;
-}
-
-function handleChangeValue() {
+function handleChangeVolume() {
   video[this.name] = this.value;
-  if (this.name === 'volume') {
     checkVolume();
     getInputColor(volume);
-  }
 }
 
-function changeCurrentTime() {
-  currentTime.value = this.currentTime;
+function handleChangeTime() {
+  video[this.name] = this.value / this.max * video.duration;
+  video.play();
+}
+
+function changeTime() {
+  currentTime.value = this.currentTime / this.duration * currentTime.max;
   getInputColor(currentTime);
 }
 
@@ -98,18 +97,18 @@ playBtn.addEventListener('click', toggleVideo);
 video.addEventListener('play', changePlayBtn);
 video.addEventListener('pause', changePlayBtn);
 
+video.addEventListener('timeupdate', changeTime);
 
-currentTime.max = Math.floor(video.duration);
-video.addEventListener('timeupdate', changeCurrentTime);
+currentTime.addEventListener('input', () => getInputColor(currentTime));
+volume.addEventListener('input',() => getInputColor(volume));
 
-currentTime.addEventListener('input', getInputColorStart);
-volume.addEventListener('input', getInputColorStart);
+currentTime.addEventListener('mousedown', () => { video.pause() });
+currentTime.addEventListener('change', handleChangeTime);
 
-currentTime.addEventListener('change', handleChangeValue);
-
-volume.addEventListener('change', handleChangeValue);
-volume.addEventListener('mousemove', handleChangeValue);
+volume.addEventListener('change', handleChangeVolume);
+volume.addEventListener('mousemove', handleChangeVolume);
 volumeBtn.addEventListener('click', toggleVolume)
+videoBtn.addEventListener('click', closePoster)
 
 
 
