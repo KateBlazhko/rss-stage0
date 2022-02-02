@@ -6,6 +6,7 @@ const playBtn = player.querySelector('.play-pause');
 const currentTime = player.querySelector('.player-slider[name="currentTime"]');
 const volume = player.querySelector('.player-slider[name="volume"]');
 const volumeBtn = player.querySelector('.volume');
+let filledColor = getComputedStyle(document.documentElement).getPropertyValue('--text-tittle-color');
 
 function closePoster() {
   if (poster.style.display = 'block') {
@@ -36,12 +37,11 @@ function changePlayBtn() {
   }
 }
 
-function getInputColor(inputRange) {
-  let filledColor = getComputedStyle(document.documentElement).getPropertyValue('--text-tittle-color');
 
+function getInputColor(inputRange) {
   let percent = inputRange.value / inputRange.max * 100;
-  if (percent < 50) { percent = Math.ceil(percent)}
-  if (percent >= 50) { percent = Math.floor(percent)}
+  if (percent < 50) { percent += 0.1}
+  if (percent >= 50) { percent -= 0.1}
   inputRange.style.background = `linear-gradient(to right, ${filledColor} 0%, ${filledColor} ${percent}%, #ffffff ${percent}%, #ffffff 100%)`;
 }
 
@@ -53,7 +53,6 @@ function handleChangeVolume() {
 
 function handleChangeTime() {
   video[this.name] = this.value / this.max * video.duration;
-  video.play();
 }
 
 function changeTime() {
@@ -89,6 +88,15 @@ function checkVolume() {
   }
 }
 
+function getColorTheme() {
+  setTimeout(() => {
+    filledColor = getComputedStyle(document.documentElement).getPropertyValue('--text-tittle-color');
+    getInputColor(currentTime);
+    getInputColor(volume);
+  }, 100);
+}
+
+videoBtn.addEventListener('click', closePoster)
 
 video.addEventListener('click', toggleVideo);
 videoBtn.addEventListener('click', toggleVideo);
@@ -97,18 +105,18 @@ playBtn.addEventListener('click', toggleVideo);
 video.addEventListener('play', changePlayBtn);
 video.addEventListener('pause', changePlayBtn);
 
+const themeToggle = document.querySelector('.theme');
+themeToggle.addEventListener('click', getColorTheme);
+
 video.addEventListener('timeupdate', changeTime);
-
-currentTime.addEventListener('input', () => getInputColor(currentTime));
-volume.addEventListener('input',() => getInputColor(volume));
-
-currentTime.addEventListener('mousedown', () => { video.pause() });
-currentTime.addEventListener('change', handleChangeTime);
+currentTime.addEventListener('input', handleChangeTime);
 
 volume.addEventListener('change', handleChangeVolume);
 volume.addEventListener('mousemove', handleChangeVolume);
+
 volumeBtn.addEventListener('click', toggleVolume)
-videoBtn.addEventListener('click', closePoster)
+
+
 
 
 
