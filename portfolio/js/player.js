@@ -1,11 +1,13 @@
 const player = document.querySelector('.player');
 const poster = player.querySelector('.poster');
+const playerControls = player.querySelector('.player-controls');
 const videoBtn = player.querySelector('.video-button');
 const video = player.querySelector('.player-video');
 const playBtn = player.querySelector('.play-pause');
 const currentTime = player.querySelector('.player-slider[name="currentTime"]');
 const volume = player.querySelector('.player-slider[name="volume"]');
 const volumeBtn = player.querySelector('.volume');
+const fullScreen = player.querySelector('.full-screen');
 let filledColor = getComputedStyle(document.documentElement).getPropertyValue('--text-tittle-color');
 
 function closePoster() {
@@ -13,6 +15,7 @@ function closePoster() {
     poster.style.opacity = '0';
     setTimeout(() => poster.style.display = 'none', 500);
   }
+  showPlayerControls()
 }
 
 function toggleVideo() {
@@ -96,7 +99,22 @@ function getColorTheme() {
   }, 100);
 }
 
-videoBtn.addEventListener('click', closePoster)
+function getFullScreen() {
+  video.requestFullscreen()
+}
+
+function hidePlayerControls() {
+  clearTimeout (i)
+  playerControls.style.bottom = '0px'
+  i = setTimeout(() => playerControls.style.bottom = '-60px', 2000);
+}
+
+function showPlayerControls() {
+  playerControls.style.bottom = '0px'
+}
+
+videoBtn.addEventListener('click', closePoster);
+playerControls.addEventListener('mousemove', showPlayerControls)
 
 video.addEventListener('click', toggleVideo);
 videoBtn.addEventListener('click', toggleVideo);
@@ -114,7 +132,12 @@ currentTime.addEventListener('input', handleChangeTime);
 volume.addEventListener('change', handleChangeVolume);
 volume.addEventListener('mousemove', handleChangeVolume);
 
-volumeBtn.addEventListener('click', toggleVolume)
+volumeBtn.addEventListener('click', toggleVolume);
+
+fullScreen.addEventListener('click', getFullScreen);
+
+let i = null;
+video.addEventListener('mousemove', hidePlayerControls);
 
 
 
