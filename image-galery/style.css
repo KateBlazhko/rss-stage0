@@ -1,16 +1,10 @@
 html {
     --body-color: #ffffff;
     --text-color: #ffffff;
-    --input-color: rgba(0, 0, 0, 0.3);
-    --icon-color: rgba(255, 255, 255, 0.6);
-    --bg-color: rgba(255, 255, 255, 0.3);
-    --bg-img: url('assets/img/bg-default.png');
-
-
-
-
-
-    scroll-behavior: smooth;
+    --text-placeholder-color: rgba(255, 255, 255, 0.6);
+    --input-color: rgba(255, 255, 255, 0.2);
+    --icon-color: #ffffff;
+    --bg-color: linear-gradient(to right, #a86e53, #5078e6);
   }
 
   body {
@@ -23,15 +17,6 @@ html {
     font-size: 24px;
     line-height: 28px;
     color: var(--text-color);
-
-    background-image: var(--bg-img);
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-  }
-
-  main {
-    background: var(--bg-color);
   }
 
   *,
@@ -42,8 +27,6 @@ html {
 
   h1 {
     margin: 0;
-
-    font-weight: normal;
   }
 
   p {
@@ -58,33 +41,34 @@ html {
   }
 
    /* Header */
-  .header-container {
+  .header {
+    background: var(--bg-color);
+
+    padding: 15px 0;
+  }
+
+  .header-inner {
     display: flex;
-    align-items: end;
-    justify-content: start;
-    flex-wrap: wrap;
-    width: calc(480 / 1440 * 100%);
-    margin: 3% 3% 3% auto;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 0 1%;
 
-    border-radius: 8px 8px 8px 8px;
+    background: transparent ;
+    border-radius: 15px;
 
-    background: var(--input-color);
   }
 
   .tittle {
     display: flex;
     gap: 5px;
-    width: 100%;
-    padding: 3% 5%;
-    border-radius: 8px 8px 0px 0px;
-
-    background: var(--input-color);
   }
 
-  .far {
-    font-size: 20px;
+  .fa-images {
+    font-size: 30px;
     line-height: 20px;
     font-weight: bold;
+    color: var(--icon-color);
   }
 
   .tittle-text {
@@ -98,8 +82,21 @@ html {
     display: flex;
     align-items: center;
 
-    width: 100%;
-    height: 70px;
+    width: 500px;
+    height: 40px;
+  }
+
+  .fa-search {
+    position: absolute;
+    left: 3%;
+    top: 50%;
+
+    font-size: 20px;
+    line-height: 28px;
+    font-weight: bold;
+    color: var(--icon-color);
+
+    transform: translateY(-50%);
   }
 
   .search-input {
@@ -107,6 +104,7 @@ html {
     height: 100%;
     border: none;
     padding-left: 12%;
+    border-radius: 20px;
 
     font-family: 'Roboto', sans-serif;
     font-style: normal;
@@ -115,11 +113,12 @@ html {
     line-height: 28px;
     color: var(--text-color);
 
-    background: transparent;
+    background: var(--input-color);
   }
 
   .search-input:focus {
     outline: none;
+    box-shadow: 0 0 5px var(--body-color);
   }
 
   .search-input::placeholder {
@@ -128,19 +127,69 @@ html {
     font-weight: 300;
     font-size: 20px;
     line-height: 28px;
-    color: var(--icon-color);
+    color: var(--text-placeholder-color);
   }
 
-  .search-icon {
-    position: absolute;
-    left: 5%;
-    top: 50%;
-
-    width: 25px;
-    height: 25px;
-
-    fill: var(--icon-color);
-
-    transform: translateY(-50%);
+  /* Main */
+  .image-wrap{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+    width: 100%;
+    padding: 15px 0;
   }
 
+  .image {
+    flex-basis: 32%;
+    padding-bottom: 20%;
+
+    background-position: center;
+    background-size: cover;
+
+    cursor: pointer;
+  }
+
+  /* Footer */
+  footer {
+    background: var(--bg-color);
+  }
+  .footer_inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1%;
+
+    font-size: 20px;
+    line-height: 20px;
+  }
+
+  .me {
+    gap: 10px;
+    justify-content: start;
+  }
+
+  .rs {
+    gap: 5px;
+    justify-content: end;
+  }
+
+  .footer_inner_item {
+    display: flex;
+    flex: 1 1;
+
+  }
+
+  .image_logo {
+    display: block;
+
+    width: 10%;
+    height: 10%;
+  }
+
+  .course_link,
+  .git_link   {
+    text-decoration: none;
+    color: var(--text-color);
+}
