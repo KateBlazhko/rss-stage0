@@ -1,6 +1,10 @@
-import {getData} from  './data.js';
+import {getData, inputSubcribe} from  './data.js';
 
-getData();
+window.onload = () => {
+  inputSubcribe();
+  getData();
+}
+
 
 
 
