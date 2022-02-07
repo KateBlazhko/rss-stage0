@@ -15,7 +15,7 @@ function closePoster() {
     poster.style.opacity = '0';
     setTimeout(() => poster.style.display = 'none', 500);
   }
-  showPlayerControls()
+  togglePlayerControls()
 }
 
 function toggleVideo() {
@@ -49,12 +49,14 @@ function getInputColor(inputRange) {
 }
 
 function handleChangeVolume() {
+  togglePlayerControls()
   video[this.name] = this.value;
     checkVolume();
     getInputColor(volume);
 }
 
 function handleChangeTime() {
+  togglePlayerControls()
   video[this.name] = this.value / this.max * video.duration;
 }
 
@@ -103,18 +105,13 @@ function getFullScreen() {
   video.requestFullscreen()
 }
 
-function hidePlayerControls() {
+function togglePlayerControls() {
   clearTimeout (i)
   playerControls.style.bottom = '0px'
-  i = setTimeout(() => playerControls.style.bottom = '-60px', 2000);
-}
-
-function showPlayerControls() {
-  playerControls.style.bottom = '0px'
+  i = setTimeout(() => playerControls.style.bottom = '-60px', 2000)
 }
 
 videoBtn.addEventListener('click', closePoster);
-playerControls.addEventListener('mousemove', showPlayerControls)
 
 video.addEventListener('click', toggleVideo);
 videoBtn.addEventListener('click', toggleVideo);
@@ -137,7 +134,8 @@ volumeBtn.addEventListener('click', toggleVolume);
 fullScreen.addEventListener('click', getFullScreen);
 
 let i = null;
-video.addEventListener('mousemove', hidePlayerControls);
+video.addEventListener('mousemove', togglePlayerControls);
+video.addEventListener('touch', togglePlayerControls);
 
 
 
