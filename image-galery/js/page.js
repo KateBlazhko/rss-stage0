@@ -8,6 +8,23 @@ class PageElement {
   }
 }
 
+class Image extends PageElement {
+  constructor(parent, className, url){
+    super(parent, 'div', className);
+    this.url = url;
+    this.isNeed = true;
+  }
+
+  render(url) {
+    this.node.style.backgroundImage = `url(${url})`;
+    this.node.style.display = 'block';
+  }
+
+  clear() {
+    this.node.style.display = 'none';
+  }
+}
+
 class Renderer {
   constructor(){
     this.renderList = [];
@@ -19,31 +36,23 @@ class Renderer {
   }
 
   render() {
-    this.renderList.forEach(it => it.render(url))
+    this.renderList.forEach(it => {
+      it.isNeed && it.render(it.url);
+    })
   }
+
+  clear() {
+    this.renderList.forEach(it => {
+      it.clear();
+    })
+  }
+
 }
-
-class Image extends PageElement {
-  constructor(parent, className){
-    super(parent, 'div', className);
-  }
-
-  addClass() {
-    this.node.classList.add('hidden')
-  }
-
-  removeClass() {
-    this.node.classList.remove('hidden')
-  }
-
-  render(url) {
-    this.node.style.backgroundImage = `url(${url})`;
-  }
-}
-
 
 const imageWrap = document.querySelector('.image-wrap');
 const searchInput = document.querySelector('.search-input');
 
-export {Image, Renderer, imageWrap, searchInput}
+const rend = new Renderer()
+
+export {Image, rend, imageWrap, searchInput}
 

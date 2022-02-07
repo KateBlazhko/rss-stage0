@@ -1,4 +1,4 @@
-import {imageWrap, Image, Renderer, searchInput} from  './page.js';
+import {Image, imageWrap, rend, searchInput} from  './page.js';
 
 function showImg(data) {
   if (rend.isExist) {
@@ -9,21 +9,24 @@ function showImg(data) {
 }
 
 function updateImage(data) {
-  data.forEach((item, i) => {
-    rend.renderList[i].render(item.urls.regular)
-    rend.renderList[i].removeClass();
-  });
-  for (let i = data.length; i < rend.renderList.length; i++) {
-    rend.renderList[i].addClass();
-  }
+  rend.clear();
+  rend.renderList.forEach((it, i) => {
+    if (i < data.length) {
+      it.url = data[i].urls.regular;
+      it.isNeed = true;
+    } else {
+      it.isNeed = false;
+    }
+  })
+  rend.render();
 }
 
 function createImage(data) {
   data.forEach(item => {
-    let el = new Image(imageWrap, 'image');
-    el.render(item.urls.regular);
+    let el = new Image(imageWrap, 'image', item.urls.regular);
     rend.addElement(el);
   });
+  rend.render();
   rend.isExist = true;
 }
 
@@ -45,8 +48,6 @@ const checkEnter = (e) => {
   }
 }
 
-let value = 'spring';
-
-const rend = new Renderer()
+let value = 'funny';
 
 export {getData, inputSubcribe}

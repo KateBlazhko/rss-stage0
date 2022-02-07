@@ -8,6 +8,9 @@ html {
   }
 
   body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     height: 100vh;
     margin: 0;
 
@@ -132,6 +135,11 @@ html {
   }
 
   /* Main */
+  main {
+    margin-top: 0;
+    margin-bottom: auto;
+  }
+
   .image-wrap{
     display: flex;
     align-items: center;
@@ -150,10 +158,6 @@ html {
     background-size: cover;
 
     cursor: pointer;
-  }
-
-  .image.hidden {
-    display: none;
   }
 
   /* Footer */
