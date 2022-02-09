@@ -5,9 +5,12 @@ html {
     --input-color: rgba(255, 255, 255, 0.2);
     --icon-color: #ffffff;
     --bg-color: linear-gradient(to right, #a86e53, #5078e6);
+    --body-full-color: rgba(0, 0, 0, 0.5);
   }
 
   body {
+    position: relative;
+
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -20,6 +23,41 @@ html {
     font-size: 24px;
     line-height: 28px;
     color: var(--text-color);
+  }
+
+  .full {
+    overflow: hidden;
+    padding-right: 16px;
+  }
+
+  body.full::after {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1;
+
+    width: 100%;
+    height: 100%;
+    content: '';
+
+    background: var(--body-full-color);
+  }
+
+  .full-img {
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    z-index: 2;
+
+    display: none;
+    width: 100%;
+    padding-bottom: 45%;
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+
+    cursor: pointer;
+    transform: translateX(-50%) translateY(-50%);
   }
 
   *,
@@ -45,9 +83,10 @@ html {
 
    /* Header */
   .header {
-    background: var(--bg-color);
-
+    margin-right: -16px;
     padding: 15px 0;
+
+    background: var(--bg-color);
   }
 
   .header-inner {
@@ -162,8 +201,10 @@ html {
 
   /* Footer */
   footer {
+    margin-right: -16px;
     background: var(--bg-color);
   }
+
   .footer_inner {
     display: flex;
     align-items: center;

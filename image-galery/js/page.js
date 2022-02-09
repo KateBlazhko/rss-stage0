@@ -15,6 +15,11 @@ class Image extends PageElement {
     this.isNeed = true;
   }
 
+
+  clickElement() {
+    return this.url
+  }
+
   render() {
     this.node.style.backgroundImage = `url(${this.url})`;
     this.node.style.display = 'block';
@@ -35,7 +40,23 @@ class Renderer {
   constructor(){
     this.renderList = [];
     this.isExist = false;
+    this.fullElement = new Image(imageWrap, 'full-img');
+    this.fullElement.node.addEventListener('click', () => {
+      this.fullElement.clear();
+      document.body.classList.remove('full')
+    })
   }
+
+  clickElement() {
+    this.renderList.forEach(it => {
+      it.node.addEventListener('click', () => {
+        this.fullElement.url = it.clickElement();
+        this.fullElement.render();
+        document.body.classList.add('full')
+      })
+    })
+  }
+
 
   addElement(url) {
     let element = new Image(imageWrap, 'image', url);
@@ -63,7 +84,7 @@ class Renderer {
 const imageWrap = document.querySelector('.image-wrap');
 const searchInput = document.querySelector('.search-input');
 
-const rend = new Renderer()
+const rend = new Renderer();
 
 export {rend, searchInput}
 

@@ -21,6 +21,7 @@ function createImage(data) {
     rend.addElement(item.urls.regular);
   });
   rend.render();
+  rend.clickElement();
   rend.isExist = true;
 }
 
