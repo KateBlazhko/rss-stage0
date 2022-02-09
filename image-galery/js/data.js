@@ -1,4 +1,4 @@
-import {Image, imageWrap, rend, searchInput} from  './page.js';
+import {rend, searchInput} from  './page.js';
 
 function showImg(data) {
   if (rend.isExist) {
@@ -10,21 +10,15 @@ function showImg(data) {
 
 function updateImage(data) {
   rend.clear();
-  rend.renderList.forEach((it, i) => {
-    if (i < data.length) {
-      it.url = data[i].urls.regular;
-      it.isNeed = true;
-    } else {
-      it.isNeed = false;
-    }
-  })
+  data.forEach((item, i) => {
+    rend.updateElement(i, item.urls.regular)
+  });
   rend.render();
 }
 
 function createImage(data) {
   data.forEach(item => {
-    let el = new Image(imageWrap, 'image', item.urls.regular);
-    rend.addElement(el);
+    rend.addElement(item.urls.regular);
   });
   rend.render();
   rend.isExist = true;
