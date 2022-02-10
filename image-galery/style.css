@@ -17,7 +17,7 @@ html {
     height: 100vh;
     margin: 0;
 
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Barlow', sans-serif;
     font-style: normal;
     font-weight: 300;
     font-size: 24px;
@@ -107,15 +107,15 @@ html {
   }
 
   .fa-images {
-    font-size: 30px;
-    line-height: 20px;
+    font-size: 40px;
+    line-height: 25px;
     font-weight: bold;
     color: var(--icon-color);
   }
 
   .tittle-text {
-    font-size: 24px;
-    line-height: 20px;
+    font-size: 40px;
+    line-height: 25px;
   }
 
   .search {
