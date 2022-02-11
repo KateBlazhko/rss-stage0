@@ -11,39 +11,45 @@ class PageElement {
     }
 }
 
-class Image extends PageElement {
-  constructor(parent, className, src, alt, data) {
-    super(parent, 'img', className);
-    this.node.src = src;
-    this.node.alt = alt;
-    this.node.dataset.fruit = data;
-  }
-}
-
 class Cards extends PageElement {
   constructor(parent, className, cardQuantity) {
     super(parent, 'div', className);
     this.cardList = [];
     this.cardQuantity = cardQuantity;
     this.rotateCardList = [];
+    this.isBlock = false;
   }
 
   createCards() {
     for (let i = 1; i <= this.cardQuantity; i++) {
       this.cardList.push(new Card(this.node, 'card', i))
     }
+    this.mixCards();
     this.clickCards();
+  }
+
+  mixCards() {
+    this.cardList.forEach(card => {
+      let ramdomPos = Math.floor(Math.random() * this.cardQuantity);
+      card.node.style.order = ramdomPos;
+    });
   }
 
   clickCards() {
     this.cardList.forEach(card => {
-      card.node.addEventListener('click', card.rotateCard.bind(card));
+      card.node.addEventListener('click', () => card.rotateCard());
     });
   }
 
   rotateCards(card) {
-    this.rotateCardList.push(card);
-    this.blockCards();
+    let cardMatch = this.rotateCardList.find(it=> it.cardNumber === card.cardNumber);
+    if (cardMatch === undefined) {
+      this.rotateCardList.push(card);
+    }
+    if (this.rotateCardList.length % 2 === 0) {
+      this.isBlock = true;
+      this.blockCards();
+    }
   }
 
   unrotateCards() {
@@ -51,24 +57,22 @@ class Cards extends PageElement {
       card.unRotateCard();
     });
     this.rotateCardList = [];
-    this.unblockCards();
+    this.isBlock = false;
+    this.blockCards();
   }
 
   blockCards() {
-    if (this.rotateCardList.length % 2 === 0) {
+    if (this.isBlock) {
       this.node.style.pointerEvents = 'none'
       this.compareCards();
     }
-  }
-
-  unblockCards() {
     this.node.style.pointerEvents = 'auto'
   }
 
   compareCards(){
-    let firstDataSet = this.rotateCardList[0].img[0].node.dataset.fruit;
-    let secondDataSet = this.rotateCardList[1].img[0].node.dataset.fruit;
-    if (firstDataSet === secondDataSet) {
+    let firstCardName = this.rotateCardList[0].name;
+    let secondCardName = this.rotateCardList[1].name;
+    if (firstCardName === secondCardName) {
       this.disableCards()
     } else {
       setTimeout(() => {
@@ -79,26 +83,29 @@ class Cards extends PageElement {
 
   disableCards() {
     this.rotateCardList.forEach(card => {
-      card.node.removeEventListener('click', card.rotateCard.bind(card));
-     // this.cardList.splice(cardObj.number, 1);
+      card.disableCard();
+      let cardMatch = this.cardList.find(it=> it.cardNumber === card.cardNumber);
+      this.cardList.splice(cardMatch, 1);
     });
     this.rotateCardList = [];
-    this.unblockCards();
+    this.isBlock = false;
+    this.blockCards();
   }
 }
 
 class Card extends PageElement {
   constructor(parent, className, cardNumber) {
     super(parent, 'div', className);
+    this.cardNumber = cardNumber;
+    this.name = fruits[cardNumber-1];
     this.img = [
-        new Image(this.node, 'front-img', `../assets/img/${cardNumber}.jpg`, `${cardNumber}card`, `${fruits[cardNumber-1]}`),
-        new Image(this.node, 'back-img', '../assets/img/back.jpg', `${cardNumber}card`)
+        new Image(this.node, 'front-img', `../assets/img/${cardNumber}.jpg`, `cardFrontImg`),
+        new Image(this.node, 'back-img', '../assets/img/back.jpg', `cardBackImg`)
     ]
   }
 
   rotateCard() {
     this.node.classList.add('rotate');
-    console.log('gdg')
     memoryCards.rotateCards(this);
   }
 
@@ -106,10 +113,22 @@ class Card extends PageElement {
     this.node.classList.remove('rotate');
   }
 
+  disableCard() {
+    this.node.style.pointerEvents = 'none';
+  }
+
+}
+
+class Image extends PageElement {
+  constructor(parent, className, src, alt) {
+    super(parent, 'img', className);
+    this.node.src = src;
+    this.node.alt = alt;
+  }
 }
 
 const section = document.querySelector('.section');
-const memoryCards = new Cards (section, 'memory-cards', 12);
+const memoryCards = new Cards (section, 'memory-cards', 16);
 
 
 export {memoryCards}
