@@ -1,6 +1,3 @@
-const fruits = ['lemon', 'lemon', 'orange', 'orange', 'garnet', 'garnet', 'ananas', 'ananas', 'apple', 'apple', 'apricot', 'apricot', 'melon', 'melon',
- 'raspberry', 'raspberry', 'kiwi', 'kiwi', 'coconut', 'coconut', 'strawberry', 'strawberry', 'banana', 'banana']
-
 class PageElement {
     constructor(node, tagName = 'div', className = '', content = '') {
       const el = document.createElement(tagName);
@@ -12,25 +9,24 @@ class PageElement {
 }
 
 class Cards extends PageElement {
-  constructor(parent, className, cardQuantity) {
+  constructor(parent, className) {
     super(parent, 'div', className);
     this.cardList = [];
-    this.cardQuantity = cardQuantity;
     this.rotateCardList = [];
     this.isBlock = false;
   }
 
-  createCards() {
-    for (let i = 1; i <= this.cardQuantity; i++) {
+  createCards(cardQuantity) {
+    for (let i = 1; i <= cardQuantity; i++) {
       this.cardList.push(new Card(this.node, 'card', i))
     }
-    this.mixCards();
+    this.mixCards(cardQuantity);
     this.clickCards();
   }
 
-  mixCards() {
+  mixCards(cardQuantity) {
     this.cardList.forEach(card => {
-      let ramdomPos = Math.floor(Math.random() * this.cardQuantity);
+      let ramdomPos = Math.floor(Math.random() * cardQuantity);
       card.node.style.order = ramdomPos;
     });
   }
@@ -86,10 +82,17 @@ class Cards extends PageElement {
       card.disableCard();
       let cardMatch = this.cardList.find(it=> it.cardNumber === card.cardNumber);
       this.cardList.splice(cardMatch, 1);
+      if (this.cardList.length === 0)  setTimeout(() => {
+        alert('finish')
+      }, 1000)
     });
     this.rotateCardList = [];
     this.isBlock = false;
     this.blockCards();
+  }
+
+  changeField() {
+    section.classList.add('big');
   }
 }
 
@@ -127,8 +130,11 @@ class Image extends PageElement {
   }
 }
 
+const fruits = ['lemon', 'lemon', 'orange', 'orange', 'garnet', 'garnet', 'ananas', 'ananas', 'apple', 'apple', 'apricot', 'apricot', 'melon', 'melon',
+ 'raspberry', 'raspberry', 'kiwi', 'kiwi', 'coconut', 'coconut', 'strawberry', 'strawberry', 'banana', 'banana'];
+
 const section = document.querySelector('.section');
-const memoryCards = new Cards (section, 'memory-cards', 16);
+const memoryCards = new Cards (section, 'memory-cards');
 
 
-export {memoryCards}
+export {memoryCards, PageElement}

@@ -1,5 +1,5 @@
-import {memoryCards} from  './cards.js';
+import {menu} from  './startGame.js';
 
 window.onload = () => {
-  memoryCards. createCards();
+  menu. clickMenu();
 }
