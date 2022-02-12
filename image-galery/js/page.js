@@ -52,7 +52,7 @@ class Renderer {
       it.node.addEventListener('click', () => {
         this.fullElement.url = it.clickElement();
         this.fullElement.render();
-        document.body.classList.add('full')
+        document.body.classList.add('full');
       })
     })
   }

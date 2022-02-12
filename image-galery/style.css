@@ -27,7 +27,7 @@ html {
 
   .full {
     overflow: hidden;
-    padding-right: 16px;
+    padding-right: 23px;
   }
 
   body.full::after {
@@ -83,7 +83,6 @@ html {
 
    /* Header */
   .header {
-    margin-right: -16px;
     padding: 15px 0;
 
     background: var(--bg-color);
@@ -201,7 +200,6 @@ html {
 
   /* Footer */
   footer {
-    margin-right: -16px;
     background: var(--bg-color);
   }
 
