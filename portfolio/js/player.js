@@ -40,7 +40,6 @@ function changePlayBtn() {
   }
 }
 
-
 function getInputColor(inputRange) {
   let percent = inputRange.value / inputRange.max * 100;
   if (percent < 50) { percent += 0.1}
@@ -71,7 +70,7 @@ function toggleVolume() {
 
   video.muted = !video.muted;
 
-  if (video.muted === true) {
+  if (video.muted) {
     on.style.display = 'none';
     off.style.display = 'block';
   } else {
@@ -84,12 +83,14 @@ function checkVolume() {
   const on = player.querySelector('.on');
   const off = player.querySelector('.off');
 
-  if (video.volume === 0) {
+  if (!video.volume) {
     on.style.display = 'none';
     off.style.display = 'block';
+    video.muted = true;
   } else {
     off.style.display = 'none';
     on.style.display = 'block';
+    video.muted = false;
   }
 }
 
@@ -127,7 +128,6 @@ video.addEventListener('timeupdate', changeTime);
 currentTime.addEventListener('input', handleChangeTime);
 
 volume.addEventListener('change', handleChangeVolume);
-volume.addEventListener('mousemove', handleChangeVolume);
 
 volumeBtn.addEventListener('click', toggleVolume);
 
