@@ -250,9 +250,25 @@ html {
 }
 
 @media (max-width: 768px) {
-  .image {
-    flex-basis: 100%;
+  .full {
+    padding-right: 0px;
+  }
+
+  .full-img {
     padding-bottom: 60%;
+  }
+
+  .tittle-text {
+    font-size: 25px;
+  }
+
+  .fa-images {
+    font-size: 25px;
+  }
+
+  .search {
+    width: 60%;
+
   }
 
   .footer_inner {
