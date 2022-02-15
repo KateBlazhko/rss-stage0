@@ -82,9 +82,8 @@ class Renderer {
 }
 
 const imageWrap = document.querySelector('.image-wrap');
-const searchInput = document.querySelector('.search-input');
 
 const rend = new Renderer();
 
-export {rend, searchInput}
+export {rend}
 

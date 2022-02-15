@@ -1,4 +1,4 @@
-import {rend, searchInput} from  './page.js';
+import {rend} from  './page.js';
 
 function showImg(data) {
   if (rend.isExist) {
@@ -34,15 +34,23 @@ async function getData() {
 
 const inputSubcribe = () => {
   searchInput.addEventListener('keydown', checkEnter)
+  searchIcon.addEventListener('click', checkValue)
+
 }
 
 const checkEnter = (e) => {
   if (e.keyCode === 13) {
-    value = searchInput.value;
-    getData()
+    checkValue()
   }
 }
 
+const checkValue = () => {
+    value = searchInput.value;
+    getData()
+}
+
 let value = 'funny';
+const searchInput = document.querySelector('.search-input');
+const searchIcon = document.querySelector('.fa-search');
 
 export {getData, inputSubcribe}
