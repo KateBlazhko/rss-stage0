@@ -1,12 +1,6 @@
-class PageElement {
-    constructor(node, tagName = 'div', className = '', content = '') {
-      const el = document.createElement(tagName);
-      el.className = className;
-      el.innerHTML = content;
-      this.node = el;
-      node.append(el);
-    }
-}
+import {PageElement} from './pageElement.js';
+import {data} from './startGame.js';
+import {result} from  './fihishGame.js';
 
 class Cards extends PageElement {
   constructor(parent, className) {
@@ -16,17 +10,20 @@ class Cards extends PageElement {
     this.isBlock = false;
   }
 
-  createCards(cardQuantity) {
-    for (let i = 1; i <= cardQuantity; i++) {
+  createCards() {
+    this.cardQuantity = data.cardQuantity;
+    if (this.cardQuantity === 24) this.changeField();
+    for (let i = 1; i <= this.cardQuantity; i++) {
       this.cardList.push(new Card(this.node, 'card', i))
     }
-    this.mixCards(cardQuantity);
+    this.score = 0;
+    this.mixCards();
     this.clickCards();
   }
 
-  mixCards(cardQuantity) {
+  mixCards() {
     this.cardList.forEach(card => {
-      let ramdomPos = Math.floor(Math.random() * cardQuantity);
+      let ramdomPos = Math.floor(Math.random() * this.cardQuantity);
       card.node.style.order = ramdomPos;
     });
   }
@@ -43,6 +40,7 @@ class Cards extends PageElement {
       this.rotateCardList.push(card);
     }
     if (this.rotateCardList.length % 2 === 0) {
+      this.countScore();
       this.isBlock = true;
       this.blockCards();
     }
@@ -83,8 +81,8 @@ class Cards extends PageElement {
       let cardMatch = this.cardList.find(it=> it.cardNumber === card.cardNumber);
       this.cardList.splice(cardMatch, 1);
       if (this.cardList.length === 0)  setTimeout(() => {
-        alert('finish')
-      }, 1000)
+        result.showResult(this.score);
+      }, 500)
     });
     this.rotateCardList = [];
     this.isBlock = false;
@@ -93,6 +91,10 @@ class Cards extends PageElement {
 
   changeField() {
     section.classList.add('big');
+  }
+
+  countScore() {
+    this.score++;
   }
 }
 
@@ -137,4 +139,4 @@ const section = document.querySelector('.section');
 const memoryCards = new Cards (section, 'memory-cards');
 
 
-export {memoryCards, PageElement}
+export {memoryCards}

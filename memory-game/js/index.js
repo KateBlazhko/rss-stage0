@@ -1,5 +1,5 @@
-import {menu} from  './startGame.js';
+import {nameEnter} from  './startGame.js';
 
 window.onload = () => {
-  menu. clickMenu();
+  nameEnter.clickButton();
 }

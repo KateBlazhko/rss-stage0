@@ -2,6 +2,7 @@ html {
     --body-color: #95f2d2;
     --text-color: #37a17c;
     --header-color: #fcf96f;
+    --input-color: #ffffff;
 }
 
 
@@ -49,28 +50,103 @@ body {
   background-size: 100vw 100vh;
   background-repeat: no-repeat;
   opacity: 1;
+
   transition: opacity 1s ease;
 }
 
-.menu-title {
+.game-title {
   font-size: 60px;
 }
 
-.menu {
+.name-input-wrap {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-  width: 500px;
-  height: 500px;
+  gap: 40px;
+  width: 400px;
+
+  opacity: 1;
+
+  transition: opacity 1s ease;
+}
+
+.name-input {
+  width: 90%;
+  height: 40px;
+  padding: 0 5%;
+  border: none;
+  border-radius: 20px;
+
+  font-family: 'Mali', cursive;
+  font-style: normal;
+  font-weight: 300;
+  font-size: 20px;
+  line-height: 28px;
+  color: var(--text-color);
+  text-align: center;
+
+  background: var(--input-color);
+}
+
+.name-input:focus {
+  outline: none;
+  text-align: center;
+  box-shadow: 0 0 10px var(--text-color);
+}
+
+.name-input::placeholder {
+  font-family: 'Mali', cursive;
+  font-style: normal;
+  font-weight: 300;
+  font-size: 20px;
+  line-height: 28px;
+  color: var(--text-color);
+  text-align: center;
+}
+
+.name-button {
+  width: 60%;
+  height: 60px;
+  border: none;
+  border-radius: 30px;
+
+  font-family: 'Mali', cursive;
+  font-style: normal;
+  font-weight: 300;
+  font-size: 24px;
+  line-height: 28px;
+  color: var(--body-color);
+
+  background-color: var(--text-color);
+}
+
+.name-button:hover {
+  color: var(--text-color);
 
   background-color: var(--header-color);
+}
+
+.menu {
+  display: none;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  width: 500px;
+  height: 400px;
+  border-radius: 30px;
+
+  background-color: var(--header-color);
+  opacity: 0;
+
+  transition: opacity 1s ease;
 }
 
 .menu-button {
   width: 60%;
   height: 60px;
   border: none;
+  border-radius: 30px;
 
   font-family: 'Mali', cursive;
   font-style: normal;
@@ -161,6 +237,57 @@ body {
 
 .front-img {
   transform: rotateY(180deg);
+}
+
+.finish-game {
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 3;
+
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 80px;
+  width: 100%;
+  height: 100%;
+
+  background: url(assets/img/bg-fruitsFull.jpg);
+  background-size: 100vw 100vh;
+  background-repeat: no-repeat;
+  opacity: 0;
+  transition: opacity 1s ease;
+}
+
+.score {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  width: 80%;
+
+  font-size: 40px;
+}
+
+.score-title {
+  width: 80%;
+
+  text-align: center;
+}
+
+.name {
+  font-size: 60px;
+}
+
+.score-table {
+  width: 500px;
+  padding-top: 80px;
+}
+
+td {
+  font-size: 30px;
+  text-align: center;
 }
 
 footer {
