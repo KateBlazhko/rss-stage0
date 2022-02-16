@@ -4,7 +4,6 @@ import {data} from './startGame.js';
 class Result extends PageElement {
   constructor(parent, className) {
     super(parent, 'div', className);
-    this.lastResults = [];
     this.message = new PageElement (this.node, 'p', 'score-title');
     this.table = new Table (this.node, 'score-table', 'Name', 'Score', 'Level');
   }
@@ -50,9 +49,21 @@ class Result extends PageElement {
       score: `${this.score} steps`,
       level: this.level
     }
+
+    if (localStorage.getItem('result')) {
+      lastResults = JSON.parse(localStorage.getItem('result'));
+    }
+    this.lastResults = lastResults;
+
+    if (this.lastResults.length === 10) {
+      this.lastResults.splice(0, 1);
+    }
     this.lastResults.push(objResult);
     this.table.renderRows();
- //   localStorage.setItem('lang', lang);
+
+    lastResults = this.lastResults;
+    localStorage.setItem('result', JSON.stringify(lastResults));
+
   }
 
 
@@ -80,5 +91,5 @@ export class Table extends PageElement {
 const finishGame = new PageElement(document.body, 'div', 'finish-game');
 const result = new Result (finishGame.node, 'score');
 
-
+let lastResults = [];
 export {result}
