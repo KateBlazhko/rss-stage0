@@ -12,10 +12,10 @@ class Cards extends PageElement {
 
   createCards() {
     this.cardQuantity = data.cardQuantity;
-    if (this.cardQuantity === 24) this.changeField();
     for (let i = 1; i <= this.cardQuantity; i++) {
       this.cardList.push(new Card(this.node, 'card', i))
     }
+    if (this.cardQuantity === 24) this.changeField();
     this.score = 0;
     this.mixCards();
     this.clickCards();
@@ -82,7 +82,7 @@ class Cards extends PageElement {
       this.cardList.splice(cardMatch, 1);
       if (this.cardList.length === 0)  setTimeout(() => {
         result.showResult(this.score);
-      }, 500)
+      }, 1000)
     });
     this.rotateCardList = [];
     this.isBlock = false;
@@ -91,6 +91,10 @@ class Cards extends PageElement {
 
   changeField() {
     section.classList.add('big');
+    this.cardList.forEach(card => {
+      console.log(card.node)
+      card.node.classList.add('small');
+    });
   }
 
   countScore() {

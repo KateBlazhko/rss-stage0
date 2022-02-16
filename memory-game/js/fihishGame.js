@@ -13,14 +13,14 @@ class Result extends PageElement {
     this.score = score;
     this.getName();
     this.getLevel();
-    this.message.node.innerHTML = `<span class="name">${this.name}</span>'ve won in ${score} steps`;
+    this.message.node.innerHTML = `<span class="name">${this.name}</span>'ve won in ${score} steps!!!`;
     this.renderResult();
     this.saveResult();
   }
 
   renderResult() {
     finishGame.node.style.opacity = '1';
-    setTimeout(() => finishGame.node.style.display = 'flex', 500);
+    finishGame.node.style.display = 'flex';
   }
 
   getName() {

@@ -25,7 +25,7 @@ class NameEnter extends PageElement {
 }
 
 class Input extends PageElement {
-  constructor(parent, className, type = 'text', placeholder = "Enter your name") {
+  constructor(parent, className, type = 'text', placeholder = "Your name?") {
     super(parent, 'input', className);
     this.node.type = type;
     this.node.placeholder = placeholder;
