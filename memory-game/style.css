@@ -270,6 +270,7 @@ body {
   align-items: center;
   flex-direction: column;
   flex-wrap: wrap;
+  gap: 30px;
   width: 80%;
 }
 
@@ -285,9 +286,31 @@ body {
   font-size: 60px;
 }
 
+.restart-button {
+  width: 300px;
+  height: 60px;
+  border: none;
+  border-radius: 30px;
+
+  font-family: 'Mali', cursive;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 28px;
+  color: var(--body-color);
+
+  background-color: var(--text-color);
+}
+
+.restart-button:hover {
+  color: var(--text-color);
+
+  background-color: var(--header-color);
+}
+
 .score-table {
   width: 400px;
-  padding-top: 80px;
+  padding-top: 60px;
 }
 
 th {
@@ -374,9 +397,23 @@ footer {
     gap: 10px;
   }
 
+  .score {
+    gap: 20px;
+  }
+
+  .name {
+    font-size: 40px;
+  }
+
+  .restart-button {
+    width: 200px;
+    height: 50px;
+    border-radius: 25px;
+  }
+
   .score-table {
     width: 250px;
-    padding-top: 80px;
+    padding-top: 0px;
   }
 
   .score-title {

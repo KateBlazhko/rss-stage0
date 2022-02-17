@@ -81,7 +81,7 @@ class Cards extends PageElement {
       let cardMatch = this.cardList.find(it=> it.cardNumber === card.cardNumber);
       this.cardList.splice(cardMatch, 1);
       if (this.cardList.length === 0)  setTimeout(() => {
-        result.showResult(this.score);
+        result.renderResult(this.score);
       }, 1000)
     });
     this.rotateCardList = [];

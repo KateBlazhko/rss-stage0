@@ -8,6 +8,10 @@ class NameEnter extends PageElement {
     this.button = new ButtonInput (this.node, 'name-button', "Let's go!!");
   }
 
+  clickEnter() {
+    this.node.addEventListener('keydown', (e) => this.input.checkEnter(e));
+  }
+
   clickButton() {
     this.button.node.addEventListener('click', () => this.button.clickButton());
   }
@@ -30,6 +34,13 @@ class Input extends PageElement {
     this.node.type = type;
     this.node.placeholder = placeholder;
     this.node.setAttribute('autofocus', '');
+  }
+
+  checkEnter(e) {
+    if (e.keyCode === 13) {
+      data.name = nameEnter.input.node.value;
+      nameEnter.hide();
+    }
   }
 }
 

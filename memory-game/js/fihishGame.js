@@ -1,25 +1,27 @@
-import {PageElement} from './pageElement.js';
+import {PageElement, Button} from './pageElement.js';
 import {data} from './startGame.js';
 
 class Result extends PageElement {
   constructor(parent, className) {
     super(parent, 'div', className);
     this.message = new PageElement (this.node, 'p', 'score-title');
+    this.button =  new StartButton (this.node, 'restart-button', 'New game'),
     this.table = new Table (this.node, 'score-table', 'Name', 'Score', 'Level');
   }
 
-  showResult(score) {
-    this.score = score;
+  showResult() {
     this.getName();
     this.getLevel();
-    this.message.node.innerHTML = `<span class="name">${this.name}</span>'ve won in ${score} steps!!!`;
-    this.renderResult();
+    this.message.node.innerHTML = `<span class="name">${this.name}</span>'ve won in ${this.score} steps!!!`;
+    this.clickButton();
     this.saveResult();
   }
 
-  renderResult() {
+  renderResult(score) {
+    this.score = score;
     finishGame.node.style.opacity = '1';
     finishGame.node.style.display = 'flex';
+    this.showResult()
   }
 
   getName() {
@@ -63,9 +65,11 @@ class Result extends PageElement {
 
     lastResults = this.lastResults;
     localStorage.setItem('result', JSON.stringify(lastResults));
-
   }
 
+  clickButton() {
+    this.button.node.addEventListener('click', () => this.button.clickButton());
+  }
 
 }
 
@@ -85,6 +89,16 @@ export class Table extends PageElement {
         new PageElement (row.node, 'td', '', obj[key]);
       })
     })
+  }
+}
+
+class StartButton extends Button {
+  constructor(parent, className, textContent) {
+    super(parent, className, textContent);
+  }
+
+  clickButton() {
+    document.location.reload();
   }
 }
 
