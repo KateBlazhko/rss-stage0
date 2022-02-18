@@ -187,6 +187,8 @@ body {
 }
 
 .memory-cards {
+  position: relative;
+
   display: flex;
   justify-content: center;
   gap: 20px;
@@ -200,18 +202,63 @@ body {
 
 .card {
   position: relative;
+  z-index: 2;
 
-  width: 21%;
-  padding-bottom: 21%;
+  width: 20%;
+  padding-bottom: 20%;
+
+  opacity: 0;
 
   transform-style: preserve-3d;
   transform: scale(1);
   transition: transform 0.5s;
 }
 
+.pseudocard {
+  --left: 0;
+  --top: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 3;
+
+  width: 20%;
+  padding-bottom: 20%;
+
+  transform: translate(-50%, -50%) scale(0.2);
+  opacity: 1;
+
+  transition: opacity 1s linear;
+}
+
+.move {
+  animation-duration: 1s;
+  animation-name: move;
+  animation-fill-mode: forwards;
+  animation-direction: normal;
+  animation-timing-function: ease-in;
+}
+
+@keyframes move {
+  from {
+    transform: translate(-50%, -50%) scale(0.2);
+    z-index: 3;
+  }
+
+  to {
+    transform: translate(var(--left), var(--top)) scale(1);
+    z-index: 1;
+ }
+
+  95% {
+    z-index: 1;
+ }
+}
+
+
 .small {
-  width: 15%;
-  padding-bottom: 15%;
+  width: 14%;
+  padding-bottom: 14%;
 }
 
 .card:hover {

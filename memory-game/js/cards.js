@@ -15,10 +15,12 @@ class Cards extends PageElement {
     for (let i = 1; i <= this.cardQuantity; i++) {
       this.cardList.push(new Card(this.node, 'card', i))
     }
+
     if (this.cardQuantity === 24) this.changeField();
     this.score = 0;
     this.mixCards();
-    this.clickCards();
+    this.animateCards();
+    //this.clickCards();
   }
 
   mixCards() {
@@ -32,6 +34,40 @@ class Cards extends PageElement {
     this.cardList.forEach(card => {
       card.node.addEventListener('click', () => card.rotateCard());
     });
+  }
+
+  animateCards() {
+    this.coordsCardList = [];
+    this.cardList.forEach(card => {
+      this.coordsCardList.push(card.getCoords());
+    });
+
+    this.pseudoCardList = [];
+    if (this.cardQuantity === 24) {
+      for (let i = 1; i <= this.cardQuantity; i++) {
+        this.pseudoCardList.push(new Card(this.node, 'pseudocard small', i))
+      }
+    } else {
+      for (let i = 1; i <= this.cardQuantity; i++) {
+        this.pseudoCardList.push(new Card(this.node, 'pseudocard', i))
+      }
+    }
+
+    this.pseudoCardList.forEach((card, i) => {
+      card.node.style.setProperty('--left', `${this.coordsCardList[i].left - card.node.offsetLeft}px`);
+      card.node.style.setProperty('--top', `${this.coordsCardList[i].top - card.node.offsetTop}px`);
+      card.node.classList.add('move');
+      card.node.addEventListener('animationend', () => this.changeCards(i));
+    });
+  }
+
+  changeCards(i) {
+    this.cardList[i].changeCardOpacity();
+    this.pseudoCardList[i].changeCardOpacity();
+    this.cardList[i].clickCard();
+   // setTimeout(() => {
+    //  this.pseudoCardList[i].node.style.display = 'none';
+   // }, 1000);
   }
 
   rotateCards(card) {
@@ -113,6 +149,10 @@ class Card extends PageElement {
     ]
   }
 
+  clickCard() {
+    this.node.addEventListener('click', () => this.rotateCard());
+  }
+
   rotateCard() {
     this.node.classList.add('rotate');
     memoryCards.rotateCards(this);
@@ -124,6 +164,19 @@ class Card extends PageElement {
 
   disableCard() {
     this.node.style.pointerEvents = 'none';
+  }
+
+  getCoords() {
+    return {
+      top: this.node.offsetTop,
+      left: this.node.offsetLeft
+    };
+  }
+
+  changeCardOpacity() {
+    console.log(window.getComputedStyle(this.node).getPropertyValue('opacity'))
+    let i = window.getComputedStyle(this.node).getPropertyValue('opacity');
+    this.node.style.opacity = (i == 1) ? 0 : 1;
   }
 
 }
