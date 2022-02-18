@@ -65,9 +65,9 @@ class Cards extends PageElement {
     this.cardList[i].changeCardOpacity();
     this.pseudoCardList[i].changeCardOpacity();
     this.cardList[i].clickCard();
-   // setTimeout(() => {
-    //  this.pseudoCardList[i].node.style.display = 'none';
-   // }, 1000);
+    setTimeout(() => {
+      this.pseudoCardList[i].node.remove();
+    }, 1000);
   }
 
   rotateCards(card) {
