@@ -144,8 +144,8 @@ class Card extends PageElement {
     this.cardNumber = cardNumber;
     this.name = fruits[cardNumber-1];
     this.img = [
-        new Image(this.node, 'front-img', `../assets/img/${cardNumber}.jpg`, `cardFrontImg`),
-        new Image(this.node, 'back-img', '../assets/img/back.jpg', `cardBackImg`)
+        new Image(this.node, 'front-img', `assets/img/${cardNumber}.jpg`, `cardFrontImg`),
+        new Image(this.node, 'back-img', 'assets/img/back.jpg', `cardBackImg`)
     ]
   }
 
