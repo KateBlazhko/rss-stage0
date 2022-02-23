@@ -1,0 +1,501 @@
+html {
+    --body-color: #95f2d2;
+    --text-color: #37a17c;
+    --header-color: #fcf96f;
+    --input-color: #ffffff;
+}
+
+
+body {
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100vh;
+
+  font-family: 'Mali', cursive;
+  font-style: normal;
+  font-weight: 300;
+  font-size: 24px;
+  line-height: 28px;
+  color: var(--text-color);
+
+  background-color: var(--body-color);
+}
+
+*,
+*::after,
+*::before {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.start-game {
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 3;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 60px;
+  width: 100%;
+  height: 100%;
+
+  background: url(assets/img/bg-fruitsFull.jpg);
+  background-size: 100vw 100vh;
+  background-repeat: no-repeat;
+  opacity: 1;
+
+  transition: opacity 1s ease;
+}
+
+.game-title {
+  font-size: 60px;
+  text-align: center;
+}
+
+.name-input-wrap {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+  width: 400px;
+  height: 300px;
+
+  opacity: 1;
+
+  transition: opacity 1s ease;
+}
+
+.name-input {
+  width: 70%;
+  height: 40px;
+  padding: 0 5%;
+  border: none;
+  border-radius: 20px;
+
+  font-family: 'Mali', cursive;
+  font-style: normal;
+  font-weight: 300;
+  font-size: 20px;
+  line-height: 28px;
+  color: var(--text-color);
+  text-align: center;
+
+  background: var(--input-color);
+}
+
+.name-input:focus {
+  outline: none;
+  text-align: center;
+  box-shadow: 0 0 10px var(--text-color);
+}
+
+.name-input::placeholder {
+  font-family: 'Mali', cursive;
+  font-style: normal;
+  font-weight: 300;
+  font-size: 20px;
+  line-height: 28px;
+  color: var(--text-color);
+  text-align: center;
+}
+
+.name-button {
+  width: 50%;
+  height: 60px;
+  border: none;
+  border-radius: 30px;
+
+  font-family: 'Mali', cursive;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 28px;
+  color: var(--body-color);
+
+  background-color: var(--text-color);
+}
+
+.name-button:hover {
+  color: var(--text-color);
+
+  background-color: var(--header-color);
+}
+
+.menu {
+  display: none;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  width: 400px;
+  height: 300px;
+  border-radius: 30px;
+
+  background-color: var(--header-color);
+  opacity: 0;
+
+  transition: opacity 1s ease;
+}
+
+.menu-button {
+  width: 60%;
+  height: 60px;
+  border: none;
+  border-radius: 30px;
+
+  font-family: 'Mali', cursive;
+  font-style: normal;
+  font-weight: 300;
+  font-size: 24px;
+  line-height: 28px;
+  color: var(--text-color);
+
+  background-color: var(--body-color);
+}
+
+.menu-button:hover {
+  color: var(--header-color);
+
+  background-color: var(--text-color);
+}
+
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.big {
+  max-width: 1400px;
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100px;
+  width: 100%;
+
+  background-color: var(--header-color);
+}
+
+.memory-cards {
+  position: relative;
+
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  width: 100%;
+  height: 100%;
+  padding: 2% 0;
+
+  perspective: 2000px;
+}
+
+.card {
+  position: relative;
+  z-index: 2;
+
+  width: 20%;
+  padding-bottom: 20%;
+
+  opacity: 0;
+
+  transform-style: preserve-3d;
+  transform: scale(1);
+  transition: transform 0.5s;
+}
+
+.pseudocard {
+  --left: 0;
+  --top: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 3;
+
+  width: 20%;
+  padding-bottom: 20%;
+
+  transform: translate(-50%, -50%) scale(0.2);
+  opacity: 1;
+
+  transition: opacity 1s linear;
+}
+
+.move {
+  animation-duration: 1s;
+  animation-name: move;
+  animation-fill-mode: forwards;
+  animation-direction: normal;
+  animation-timing-function: ease-in;
+}
+
+@keyframes move {
+  from {
+    transform: translate(-50%, -50%) scale(0.2);
+    z-index: 3;
+  }
+
+  to {
+    transform: translate(var(--left), var(--top)) scale(1);
+    z-index: 1;
+ }
+
+  95% {
+    z-index: 1;
+ }
+}
+
+
+.small {
+  width: 14%;
+  padding-bottom: 14%;
+}
+
+.card:hover {
+  transform: scale(0.97);
+  transition: transform 0.2s;
+}
+
+.card.rotate {
+  transform: rotateY(180deg);
+  transition: transform 0.5s;
+}
+
+.front-img,
+.back-img {
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 1;
+
+  display: block;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+
+  backface-visibility: hidden;
+}
+
+.front-img {
+  transform: rotateY(180deg);
+}
+
+.finish-game {
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 3;
+
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 80px;
+  width: 100%;
+  height: 100%;
+
+  background: url(assets/img/bg-fruitsFull.jpg);
+  background-size: 100vw 100vh;
+  background-repeat: no-repeat;
+  opacity: 0;
+  transition: opacity 1s ease;
+}
+
+.score {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  flex-wrap: wrap;
+  gap: 30px;
+  width: 80%;
+}
+
+.score-title {
+  width: 80%;
+
+  font-size: 40px;
+  font-weight: 700;
+  text-align: center;
+}
+
+.name {
+  font-size: 60px;
+}
+
+.restart-button {
+  width: 300px;
+  height: 60px;
+  border: none;
+  border-radius: 30px;
+
+  font-family: 'Mali', cursive;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 28px;
+  color: var(--body-color);
+
+  background-color: var(--text-color);
+}
+
+.restart-button:hover {
+  color: var(--text-color);
+
+  background-color: var(--header-color);
+}
+
+.score-table {
+  width: 400px;
+  padding-top: 60px;
+}
+
+th {
+  font-size: 30px;
+  text-align: center;
+}
+
+td {
+  font-size: 30px;
+  text-align: center;
+}
+
+footer {
+  background-color: var(--header-color);
+}
+
+.footer_inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 3%;
+
+  font-size: 25px;
+  line-height: 20px;
+}
+
+.me {
+  gap: 10px;
+  justify-content: start;
+}
+
+.rs {
+  gap: 5px;
+  justify-content: end;
+}
+
+.footer_inner_item {
+  display: flex;
+  flex: 1 1;
+
+}
+
+.image_logo {
+  display: block;
+
+  width: 10%;
+  height: 10%;
+}
+
+.course_link,
+.git_link   {
+  text-decoration: none;
+  color: var(--text-color);
+}
+
+@media (max-width: 768px) {
+  .name-input-wrap {
+    width: 300px;
+    height: 200px;
+  }
+
+  .menu {
+    width: 300px;
+    height: 200px;
+  }
+
+  .menu-button {
+    height: 40px;
+    border-radius: 20px;
+  }
+
+  .game-title {
+    width: 60%;
+
+    font-size: 40px;
+    line-height: 40px;
+  }
+
+  .container {
+    padding: 0 10px;
+}
+
+  .memory-cards {
+    gap: 10px;
+  }
+
+  .score {
+    gap: 20px;
+  }
+
+  .name {
+    font-size: 40px;
+  }
+
+  .restart-button {
+    width: 200px;
+    height: 50px;
+    border-radius: 25px;
+  }
+
+  .score-table {
+    width: 250px;
+    padding-top: 0px;
+  }
+
+  .score-title {
+    font-size: 30px;
+    font-weight: 700;
+    line-height: 35px;
+    text-align: center;
+  }
+
+  th {
+    font-size: 20px;
+    text-align: center;
+  }
+
+  td {
+    font-size: 20px;
+    text-align: center;
+  }
+
+  .footer_inner {
+    flex-wrap: wrap;
+    gap: 5px;
+    font-size: 18px;
+    line-height: 20px;
+  }
+
+  .footer_inner_item {
+    flex: 1 1 100%;
+  }
+
+  .me {
+    justify-content: center;
+  }
+
+  .rs {
+    justify-content: center;
+  }
+}
