@@ -18,13 +18,14 @@ html {
   --icon-skills-color: #bdae82;
   --lang-checked-color: #bdae82;
   --border-color: #bdae82;
+  --header-hover-icon-color: #bdae82;
   --portfolio-border-color: #bdae82;
   --portfolio-text-button-color: #bdae82;
   --portfolio-button-color: #000000;
   --portfolio-button-active: #bdae82;
   --portfolio-text-button-active: #000000;
   --footer-hover-link-color: #bdae82;
-  --footer-hover-icon-color: #bdae82;
+  --input-unfill-color: #ffffff;
 
   --hero-bg-img: url('assets/img/bg.jpg');
   --contacts-bg-img: url('assets/img/contacts.jpg');
@@ -49,18 +50,19 @@ html.light {
   --hover-link-color: #ffffff;
   --hover-button-color: #1c1c1c;
   --hover-text-button-color: #bdae82;
-  --hover-icon-color: #ffffff;
+  --hover-icon-color: #bdae82;
   --icon-main-color: #1c1c1c;
   --icon-skills-color: #bdae82;
   --lang-checked-color: #ffffff;
   --border-color: #bdae82;
+  --header-hover-icon-color: #ffffff;
   --portfolio-border-color: none;
   --portfolio-text-button-color: #1c1c1c;
   --portfolio-text-button-active: #bdae82;
   --portfolio-button-color: #bdae82;
   --portfolio-button-active: #1c1c1c;
   --footer-hover-link-color: #bdae82;
-  --footer-hover-icon-color: #bdae82;
+  --input-unfill-color: #ffffff;
 
   --hero-bg-img: url('assets/img/bg-light.jpg');
   --contacts-bg-img: url('assets/img/contacts-light.jpg');
@@ -96,6 +98,10 @@ li {
   margin: 0;
   padding: 0;
   list-style-type: none;
+}
+
+button {
+  padding: 0;
 }
 
 h1,
@@ -258,7 +264,7 @@ p {
 }
 
 .logo-icon:hover {
-  fill: var(--hover-icon-color);
+  fill: var(--header-hover-icon-color);
 }
 
 .header-container-inner.fixed {
@@ -323,7 +329,7 @@ p {
 }
 
 .theme-icon:hover {
-  fill: var(--hover-icon-color)
+  fill: var(--header-hover-icon-color)
 }
 
 .lang-toggle {
@@ -376,7 +382,7 @@ p {
 }
 
 .menu-toggle:hover .menu-toggle-line {
-  background-color: var(--hover-icon-color);
+  background-color: var(--header-hover-icon-color);
 }
 
 .menu-toggle-line {
@@ -547,28 +553,38 @@ p {
   display: block;
 }
 
-/* Video */
-.video-container-inner {
+/* Video  player */
+.player {
   position: relative;
-  padding-bottom: 50.5%;
   overflow: hidden;
+
+  border: 3px solid var(--border-color);
+  background-color: var(--border-color);
 }
 
-.video {
+.poster {
   position: absolute;
   top: 0;
   left: 0;
-  display: block;
+  z-index: 2;
+
   width: 100%;
   height: 100%;
-  object-fit: cover;
+
+  background-image: url(assets/img/video-player.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+
+  opacity: 1;
+  transition: all 1s ease;
 }
 
 .video-button {
   position: absolute;
   top: 50%;
   left: 50%;
-  z-index: 1;
+  z-index: 2;
 
   border: 0;
 
@@ -587,7 +603,105 @@ p {
 }
 
 .video-button-icon:hover {
-  fill: var(--hover-icon-color);
+  fill: var(--header-hover-icon-color);
+}
+
+.player-video-wrap {
+  position: relative;
+  overflow: hidden;
+
+  padding-top: calc(590 / 1280 * 100%);
+}
+
+.player-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+
+  background-color: var(--body-color);
+}
+
+.player-controls {
+  position: absolute;
+  left: 0;
+  bottom: -60px;
+  z-index: 1;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  width: 100%;
+  height: 60px;
+  padding: 0 calc((20 / 1440) * 100%);
+
+  background: var(--header-color);
+
+  transition: all 0.5s linear;
+}
+
+.player-toggle {
+  border: 0;
+  background-color: transparent;
+}
+
+.player-button-icon {
+  display: block;
+  width: 25px;
+  height: 25px;
+  visibility: visible;
+  fill: var(--icon-main-color);
+}
+
+.player-button-icon:hover {
+  fill: var(--header-hover-icon-color);
+}
+
+.player-button-icon.pause {
+  display: none;
+}
+
+.player-button-icon.off {
+  display: none;
+}
+
+.player-slider {
+  height: 5px;
+  min-width: 0;
+  border-radius: 0px;
+
+  outline: none;
+  transition: background 450ms ease-in;
+
+  -webkit-appearance: none;
+}
+
+.player-slider[name="currentTime"] {
+  flex-basis: 75%;
+
+  background: linear-gradient(to right, var(--text-tittle-color) 0%, var(--text-tittle-color) 1%, var(--input-unfill-color) 1%, var(--input-unfill-color) 100%);
+}
+
+.player-slider[name="volume"] {
+  flex-basis: 15%;
+
+  background: linear-gradient(to right, var(--text-tittle-color) 0%, var(--text-tittle-color) 100%, var(--input-unfill-color) 100%, var(--input-unfill-color) 100%);
+}
+
+.player-slider::-webkit-slider-thumb {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+
+  cursor: ew-resize;
+  background: var(--text-tittle-color);
+
+  -webkit-appearance: none;
 }
 
 /* Price */
@@ -800,7 +914,7 @@ p {
 }
 
 .footer-icon:hover {
-  fill: var(--footer-hover-icon-color);
+  fill: var(--hover-icon-color);
 }
 
 @media (max-width: 1200px) {
@@ -1037,15 +1151,7 @@ p {
    /* Video */
   .video-container {
     padding-top: 10px;
-  }
-
-  .video-container-inner {
     margin: 0 -20px;
-    padding-bottom: 57%;
-  }
-
-  .video {
-    object-position: -5px 0px;
   }
 
   .video-button-icon {
@@ -1176,9 +1282,10 @@ p {
     width: 100%;
   }
 
-  /* Video */
-  .video {
-    object-position: 0px 0px;
+  /* Video-player */
+
+  .player-controls {
+    gap: 5px;
   }
 }
 
